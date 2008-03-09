@@ -587,7 +587,7 @@ cd build
 %cmake \
 		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 		../
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
