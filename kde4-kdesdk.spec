@@ -13,6 +13,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 URL:		http://www.kde.org/
 BuildRequires:	binutils-devel
 BuildRequires:	bison
+BuildRequires:	cmake
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
@@ -24,7 +25,6 @@ BuildRequires:	libltdl-devel
 BuildRequires:	perl-tools-pod
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
-BuildRequires:	sed >= 4.0
 BuildRequires:	subversion-devel >= 0.37.0
 Obsoletes:	kdesdk-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
