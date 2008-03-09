@@ -23,6 +23,8 @@ BuildRequires:	kde4-kdebase-devel
 BuildRequires:	kde4-kdepim-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	perl-tools-pod
+BuildRequires:	qt4-build >= 4.4.0
+BuildRequires:	qt4-qmake >= 4.4.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	subversion-devel >= 0.37.0
