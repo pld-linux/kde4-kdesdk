@@ -26,7 +26,6 @@ BuildRequires:	perl-tools-pod
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	subversion-devel >= 0.37.0
-Obsoletes:	kdesdk-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gimpdir	%(gimptool --gimpdatadir 2>/dev/null)
@@ -45,7 +44,7 @@ Pakiet wspomagający programowanie w środowisku KDE.
 Summary:	Developers' file formats enhanced information
 Summary(pl.UTF-8):	Rozszerzone informacje o plikach używanych przez programistów
 Group:		X11/Development/Libraries
-Requires:	konqueror >= %{_minbaseevr}
+Requires:	kde4-konqueror >= %{version}
 
 %description kfile
 This package adds a tab to konqueror "file properties" dialog window
@@ -60,10 +59,9 @@ dodatkową zakładkę z rozszerzonymi informacjami o pliku.
 Summary:	A KDE CVS frontend
 Summary(pl.UTF-8):	Frontend do CVS dla KDE
 Group:		X11/Development/Tools
-Requires:	%{name}-libcvsservice = %{epoch}:%{version}-%{release}
+#Requires:	%{name}-libcvsservice = %{version}-%{release}
 Requires:	cvs-client >= 1.10
-Requires:	kdebase-core >= %{_minbaseevr}
-Conflicts:	kdesdk-scripts-cvs < 3:3.3.0-1
+Requires:	kde4-kdebase-core >= %(version}
 
 %description cervisia
 A KDE CVS frontend. It features:
@@ -146,8 +144,7 @@ a
 Summary:	A kdeaccounts plugin for the KDE PIM framework
 Summary(pl.UTF-8):	Wtyczka do książki adresowej KDE dodająca obsługę kdeaccounts
 Group:		X11/Applications
-Requires:	kdepim-kaddressbook >= 3.0.8
-Obsoletes:	kaddressbook-kdeaccounts
+Requires:	kde4-kdepim-kaddressbook >= %{version}
 
 %description kde-resource-kdeaccounts
 A kdeaccounts plugin for the KDE adressbook. It allows adding the
@@ -161,7 +158,7 @@ ona osoby posiadające konta w CVS KDE do książki adresowej.
 Summary:	A bugzilla plugin for the KDE PIM framework
 Summary(pl.UTF-8):	Wtyczka do książki adresowej KDE dodająca obsługę bugzilli
 Group:		X11/Applications
-Requires:	kdepim-kaddressbook >= 3.0.8
+Requires:	kde4-kdepim-kaddressbook >= %{version}
 
 %description kde-resource-bugzilla
 A KDE PIM plugin that allows creating bugzilla TODO lists.
@@ -221,7 +218,6 @@ kmtrace konwertuje mtrace glibca do pełnego backtrace'a.
 Summary:	Kompare - a program to view the differences between files
 Summary(pl.UTF-8):	Kompare - program służący do porównywania zmian między plikami
 Group:		X11/Development/Tools
-Conflicts:	kdesdk-kbugbuster < 3:3.2.90.040517-3
 
 %description kompare
 Kompare is a program to view the differences between files. Features
@@ -271,8 +267,6 @@ wykorzystaniem QTime.
 Summary:	A utility for egzamining the internal state of a Qt/KDE application
 Summary(pl.UTF-8):	Narzędzie do badania stanu aplikacji Qt/KDE
 Group:		X11/Development/Tools
-Obsoletes:	kdiff
-Obsoletes:	kdiff2
 
 %description kspy
 KSpy is a utility intended to help developers examine the internal
@@ -329,8 +323,7 @@ Narzędzie testujące KUnit.
 Summary:	A cvs access library
 Summary(pl.UTF-8):	Biblioteka dostępu do cvs
 Group:		X11/Libraries
-Requires:	kdelibs >= %{_minlibsevr}
-Conflicts:	kdesdk-cervisia < 3:3.2.90.040516-2
+Requires:	kde4-kdelibs >= %{version}
 
 %description libcvsservice
 A library for access to CVS repositories for KDE apps.
@@ -343,8 +336,7 @@ KDE.
 Summary:	A cvsservice library - header files
 Summary(pl.UTF-8):	Biblioteka cvsservice - pliki nagłówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-libcvsservice = %{epoch}:%{version}-%{release}
-Obsoletes:	kdesdk-cervisia-devel
+Requires:	%{name}-libcvsservice = %{version}-%{release}
 
 %description libcvsservice-devel
 A cvsservice library - header files.
@@ -357,7 +349,6 @@ Summary:	Package which adds the KDE Default palette to GIMP
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
 Group:		X11/Applications/Graphics
 Requires:	gimp
-Obsoletes:	kdesdk-pallette-gimp
 
 %description palette-gimp
 This package adds the KDE Default palette to GIMP.
@@ -371,7 +362,6 @@ Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
 Group:		X11/Applications/Graphics
 Requires:	xorg-lib-libXt >= 1.0
 Requires:	xpaint
-Obsoletes:	kdesdk-pallette-xpaint
 
 %description palette-xpaint
 This package adds the KDE Default palette to XPaint.
@@ -396,14 +386,6 @@ Summary:	An set of scripts useful for building and maintaining KDE
 Summary(pl.UTF-8):	Zestaw skryptów do kompilowania i utrzymywania KDE
 Group:		X11/Development/Tools
 Requires:	/usr/bin/perl
-Obsoletes:	kdesdk-extractrc
-Obsoletes:	kdesdk-scripts-build
-Obsoletes:	kdesdk-scripts-cxxmetric
-Obsoletes:	kdesdk-scripts-extractrc
-Obsoletes:	kdesdk-scripts-findmissingcrystal
-Obsoletes:	kdesdk-scripts-kdelnk2desktop
-Obsoletes:	kdesdk-scripts-misc
-Obsoletes:	kdesdk-scripts-zonetab2pot
 
 %description scripts-developer
 This package contains:
@@ -542,7 +524,7 @@ Strigi Analyzer.
 Summary:	SVN protocol service
 Summary(pl.UTF-8):	Obsługa protokołu SVN
 Group:		X11/Libraries
-Requires:	kdelibs >= %{_minlibsevr}
+Requires:	kde4-kdelibs >= %{version}
 
 %description -n kde-kio-svn
 SVN protocol service.
@@ -554,8 +536,6 @@ Obsługa protokołu SVN.
 Summary:	KDE Advanced Text Editor
 Summary(pl.UTF-8):	Zaawansowany edytor tekstu dla KDE
 Group:		X11/Applications/Editors
-Obsoletes:	kate
-Conflicts:	kttsd <= 040609
 
 %description kate
 KDE advanced text editor featuring among others:
@@ -605,16 +585,14 @@ cd build
 %cmake \
 		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 		../
-%{__make} -j1
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d \
-	$RPM_BUILD_ROOT%{_gimpdir}/palettes \
-	$RPM_BUILD_ROOT%{_appdefsdir}
+install -d $RPM_BUILD_ROOT{%{_gimpdir}/palettes,%{_appdefsdir}}
 
-%{__make} -C build/ install \
+%{__make} -C build install \
         DESTDIR=$RPM_BUILD_ROOT \
         kde_htmldir=%{_kdedocdir}
 
@@ -647,8 +625,8 @@ rm -rf $RPM_BUILD_ROOT
 %post	kstartperf		-p /sbin/ldconfig
 %postun	kstartperf		-p /sbin/ldconfig
 
-%post	libcvsservice		-p /sbin/ldconfig
-%postun	libcvsservice		-p /sbin/ldconfig
+#%post	libcvsservice		-p /sbin/ldconfig
+#%postun	libcvsservice		-p /sbin/ldconfig
 
 %files cervisia -f cervisia.lang
 %defattr(644,root,root,755)
