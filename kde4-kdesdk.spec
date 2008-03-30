@@ -13,6 +13,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 URL:		http://www.kde.org/
 BuildRequires:	binutils-devel
 BuildRequires:	bison
+BuildRequires:	boost-spirit-devel
 BuildRequires:	cmake
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
@@ -585,6 +586,7 @@ install -d build
 cd build
 %cmake \
 		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+		-DSVN_INCLUDES="%{_includedir}/apr-util" \
 		../
 %{__make}
 
