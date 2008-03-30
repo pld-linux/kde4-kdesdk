@@ -708,16 +708,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/katetabbarextensionplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefilebrowserplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katequickdocumentswitcherplugin.so
+%attr(755,root,root) %{_libdir}/kde4/plasma_applet_katesession.so
 %{_datadir}/apps/kate
 %{_datadir}/apps/katepart
 %{_datadir}/apps/kconf_update/kate-2.4.upd
 %{_datadir}/config/katefiletemplates.knsrc
 %{_datadir}/config/katerc
 %{_datadir}/kde4/services/kate*.desktop
+%{_datadir}/kde4/services/plasma-applet-katesession.desktop
 %{_datadir}/kde4/servicetypes/kateplugin.desktop
 %{_desktopdir}/kde4/kate.desktop
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
+%{_includedir}/kate_export.h
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
