@@ -13,7 +13,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 URL:		http://www.kde.org/
 BuildRequires:	binutils-devel
 BuildRequires:	bison
-BuildRequires:	boost-spirit-devel
+BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	cmake
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
