@@ -4,12 +4,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.0.73
+Version:	4.0.82
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	3a8a1a4baf2df8a1df61c917768f61be
+# Source0-md5:	44e5a94630c50b588ccadcb6b6e2d6cf
 URL:		http://www.kde.org/
 BuildRequires:	binutils-devel
 BuildRequires:	bison
@@ -669,7 +669,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/lokalize.kcfg
 %{_datadir}/apps/lokalize
 %{_iconsdir}/*/*/actions/msgid2msgstr.png
-%{_iconsdir}/*/*/actions/preverror.png
 %{_iconsdir}/*/*/actions/insert_arg.png
 %{_iconsdir}/*/*/actions/prevfuzzy.png
 %{_iconsdir}/*/*/actions/insert_tag.png
@@ -726,8 +725,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kapptemplate
 %dir %{_datadir}/apps/kapptemplate
-%dir %{_datadir}/apps/kapptemplate/bin
-%attr(755,root,root) %{_datadir}/apps/kapptemplate/bin/*
+#%dir %{_datadir}/apps/kapptemplate/bin
+#%attr(755,root,root) %{_datadir}/apps/kapptemplate/bin/*
+%{_datadir}/config.kcfg/kapptemplate.kcfg
 %{_datadir}/apps/kapptemplate/[!b]*
 %{_desktopdir}/kde4/kapptemplate.desktop
 
