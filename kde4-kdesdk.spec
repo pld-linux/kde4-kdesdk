@@ -585,9 +585,12 @@ możliwościach obejmujących m.in.:
 install -d build
 cd build
 %cmake \
-		-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-		-DSVN_INCLUDES="%{_includedir}/apr-util" \
-		../
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DSVN_INCLUDES="%{_includedir}/apr-util" \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64 \
+%endif
+	../
 %{__make}
 
 %install
