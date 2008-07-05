@@ -4,12 +4,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.0.83
+Version:	4.0.85
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	52005ce174b711f90a0d9cb32030627d
+# Source0-md5:	5a1ed775661b76b58503e44c3f85c824
 URL:		http://www.kde.org/
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
