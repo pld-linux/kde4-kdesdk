@@ -11,10 +11,13 @@ Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	eb4e7bc753c80f617c113f31ab501168
 URL:		http://www.kde.org/
+BuildRequires:	QtDesigner-devel
+BuildRequires:	QtTest-devel
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
 BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
+BuildRequires:	bzip2-devel
 BuildRequires:	cmake
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
@@ -23,13 +26,18 @@ BuildRequires:	gettext-devel
 BuildRequires:	gimp-devel
 BuildRequires:	kde4-kdebase-devel
 BuildRequires:	kde4-kdepim-devel
+BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	perl-tools-pod
 BuildRequires:	qt4-build >= 4.4.0
 BuildRequires:	qt4-qmake >= 4.4.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	subversion-devel >= 0.37.0
+BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gimpdir	%(gimptool --gimpdatadir 2>/dev/null)
