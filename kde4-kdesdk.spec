@@ -1,5 +1,6 @@
 %define		_state		unstable
 %define		orgname		kdesdk
+%define		qtver		4.4.1
 #
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
@@ -11,8 +12,16 @@ Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	270636b6aa6bb4bd1c0846d60243700e
 URL:		http://www.kde.org/
-BuildRequires:	QtDesigner-devel
-BuildRequires:	QtTest-devel
+BuildRequires:	Qt3Support-devel >= %{qtver}
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtDesigner-devel >= %{qtver}
+BuildRequires:	QtGui-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtSql-devel >= %{qtver}
+BuildRequires:	QtSvg-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
+BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
 BuildRequires:	bison
@@ -24,16 +33,16 @@ BuildRequires:	emacs-common
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	gimp-devel
-BuildRequires:	kde4-kdebase-devel
-BuildRequires:	kde4-kdepim-devel
+BuildRequires:	kde4-kdebase-devel >= %{version}
+BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	perl-tools-pod
-BuildRequires:	qt4-build >= 4.4.0
-BuildRequires:	qt4-qmake >= 4.4.0
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	subversion-devel >= 0.37.0
@@ -595,7 +604,6 @@ install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DSVN_INCLUDES="%{_includedir}/apr-util" \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
