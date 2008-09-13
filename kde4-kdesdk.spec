@@ -4,15 +4,20 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.0
-Release:	1
+Version:	4.1.1
+Release:	0.1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	eb4e7bc753c80f617c113f31ab501168
+# Source0-md5:	268ea539de7cd5b07dc24d24f593dde1
 URL:		http://www.kde.org/
+BuildRequires:	Qt3Support-devel
 BuildRequires:	QtDesigner-devel
+BuildRequires:	QtDBus-devel
+BuildRequires:	QtSql-devel
+BuildRequires:	QtSvg-devel
 BuildRequires:	QtTest-devel
+BuildRequires:	QtUiTools-devel
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
 BuildRequires:	bison
@@ -26,9 +31,11 @@ BuildRequires:	gettext-devel
 BuildRequires:	gimp-devel
 BuildRequires:	kde4-kdebase-devel
 BuildRequires:	kde4-kdepim-devel
+BuildRequires:	kde4-kdepimlibs-devel
 BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libxslt-devel
 BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	perl-tools-pod
@@ -37,6 +44,7 @@ BuildRequires:	qt4-qmake >= 4.4.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	subversion-devel >= 0.37.0
+BuildRequires:	strigi-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
