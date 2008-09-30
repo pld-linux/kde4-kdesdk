@@ -1,3 +1,7 @@
+#
+# TODO:
+#		- fix very expressive summary/desc for -lokalize.
+#
 %define		_state		stable
 %define		orgname		kdesdk
 #
