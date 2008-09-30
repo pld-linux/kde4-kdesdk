@@ -34,6 +34,7 @@ BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	gimp-devel
 BuildRequires:	kde4-kdebase-devel
+BuildRequires:	kde4-kdebase-workspace-devel
 BuildRequires:	kde4-kdepim-devel
 BuildRequires:	kde4-kdepimlibs-devel
 BuildRequires:	giflib-devel
