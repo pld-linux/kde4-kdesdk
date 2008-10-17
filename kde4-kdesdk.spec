@@ -57,7 +57,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_appdefsdir	%{_datadir}/X11/app-defaults
 %define		_emacspkgdir	/usr/share/emacs/%(rpm -q --qf %{V} emacs-common | tr -d '[a-z]')
 %define		_xemacspkgdir	/usr/share/xemacs-packages
-%define		_zshfcdir	/usr/share/zsh/latest/functions
+%define		_zshfcdir	%{_datadir}/zsh/site-functions
 
 %description
 Software Development Kit for KDE.
