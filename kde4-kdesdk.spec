@@ -1,7 +1,4 @@
 #
-# TODO:
-#		- fix very expressive summary/desc for -lokalize.
-#
 %define		_state		stable
 %define		orgname		kdesdk
 #
@@ -150,20 +147,25 @@ Autocomplete definitions for zsh.
 Definicje autouzupełniania dla zsh.
 
 %package lokalize
-Summary:	Computer-aided translation system that focuses on productivity and performance
-Summary(pl.UTF-8):	a
+Summary:	Computer-aided translation system
+Summary(pl.UTF-8):	Wspomagany komputerowo system translacji
 Group:		X11/Development/Tools
 
 %description lokalize
 Lokalize is a computer-aided translation system that focuses on
-productivity and performance. Translator does only creative work (of
-delivering message in his/her mother language in laconic and easy to
-understand form). Lokalize implies parapgraph-by-paragrah translation
-approach (when translating documentation) and message-by-message
-approach (when translating GUI).
+productivity and quality assurance. Translator does only creative work
+(of delivering message in his/her mother language in laconic and easy
+to understand form). Lokalize implies parapgraph-by-paragrah
+translation approach (when translating documentation) and
+message-by-message approach (when translating GUI).
 
 %description lokalize -l pl.UTF-8
-a
+Lokalize jest wspomaganym komputerowo systemem do tłumaczeń,
+skupiającym się na produktywności i zapewnieniu jakości. Translator
+wykonuje tylko twórczą pracę (dostarczania treści w języku ojczystym w
+lakonicznej i łatwej do zrozumienia formie). Lokalize proponuje
+podejście paragraf-po-paragrafie (przy tłumaczeniu dokumentów) oraz
+komunikat-po-komunikacie (tłumacząc GUI).
 
 %package kde-resource-kdeaccounts
 Summary:	A kdeaccounts plugin for the KDE PIM framework
@@ -247,34 +249,33 @@ Group:		X11/Development/Tools
 %description kompare
 Kompare is a program to view the differences between files. Features
 include:
-
-  - comparison of files or directories via a graphical interface
-  - bezier-based connection widget lets you see both source and
-    destination as they really appear
-  - graphical viewing of patch files in normal, context, unified and
-    diff formats
-  - interactive application of differences
-  - full network transparency
-  - ability to view plain-text diff output in embedded viewer
-  - easy navigation of multiple-file diffs with dockable navigation tree
-  - graphical interface to commonly used diff command line options
-  - switch source and destination with one command
-  - diff statistics
+- comparison of files or directories via a graphical interface
+- bezier-based connection widget lets you see both source and
+  destination as they really appear
+- graphical viewing of patch files in normal, context, unified and
+  diff formats
+- interactive application of differences
+- full network transparency
+- ability to view plain-text diff output in embedded viewer
+- easy navigation of multiple-file diffs with dockable navigation tree
+- graphical interface to commonly used diff command line options
+- switch source and destination with one command
+- diff statistics
 
 %description kompare -l pl.UTF-8
 Kompare to program służący do porównywania zmian między plikami.
 Aktualnie dostępne funkcje:
-  - porównanie plików lub katalogów poprzez graficzny interfejs
-  - przedstawienie źródła i celu za pomocą krzywej Beziera
-  - graficzne przeglądanie łat w formatach diff, unidiff, context i
-    zwykłym
-  - interaktywne wprowadzanie zmian
-  - przezroczystość sieciowa
-  - możliwość oglądania wyjścia diff w wewnętrznej przeglądarce
-  - łatwa nawigacja między wieloplikowymi diffami wraz z dokowalnym
-    drzewem
-  - zamiana źródła i celu za pomocą pojedynczej komendy
-  - statystyki diffów
+- porównanie plików lub katalogów poprzez graficzny interfejs
+- przedstawienie źródła i celu za pomocą krzywej Beziera
+- graficzne przeglądanie łat w formatach diff, unidiff, context i
+  zwykłym
+- interaktywne wprowadzanie zmian
+- przezroczystość sieciowa
+- możliwość oglądania wyjścia diff w wewnętrznej przeglądarce
+- łatwa nawigacja między wieloplikowymi diffami wraz z dokowalnym
+  drzewem
+- zamiana źródła i celu za pomocą pojedynczej komendy
+- statystyki diffów
 
 %package kprofilemethod
 Summary:	Kprofilemethod - a set of macros which help profiling using QTime
@@ -638,7 +639,7 @@ cat kate-plugins.lang >> kate.lang
 %find_lang	kbugbuster	--with-kde
 %find_lang	kompare		--with-kde
 %find_lang	umbrello	--with-kde
-%find_lang	kdesvn-build 	--with-kde
+%find_lang	kdesvn-build	--with-kde
 %find_lang	lokalize	--with-kde
 
 %clean
