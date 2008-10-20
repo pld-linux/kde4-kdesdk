@@ -82,7 +82,7 @@ Summary(pl.UTF-8):	Frontend do CVS dla KDE
 Group:		X11/Development/Tools
 #Requires:	%{name}-libcvsservice = %{version}-%{release}
 Requires:	cvs-client >= 1.10
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description cervisia
 A KDE CVS frontend. It features:
