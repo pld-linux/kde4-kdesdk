@@ -5,12 +5,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.61
-Release:	2
+Version:	4.1.71
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	270636b6aa6bb4bd1c0846d60243700e
+# Source0-md5:	f3402643318fc7c311f914160cbeca34
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -530,6 +530,17 @@ Modeler UML Umbrello 1.2 obsługuje następujące rodzaje:
  - diagram aktywności
  - diagram składników.
 
+%package kpartloader
+Summary:	UML Modeler
+Summary(pl.UTF-8):	Modeler UML
+Group:		X11/Development/Tools
+
+%description kpartloader
+UML Modeller
+
+%description kpartloader -l pl.UTF-8
+Modeler UML
+
 %package strigi-analyzer
 Summary:	Strigi Analyzer
 Summary(pl.UTF-8):	Strigi Analyzer
@@ -552,6 +563,19 @@ SVN protocol service.
 
 %description -n kde-kio-svn -l pl.UTF-8
 Obsługa protokołu SVN.
+
+%package -n kde-kio-slave
+Summary:	kde-kio-slave
+Summary(pl.UTF-8):	kde-kio-slave
+Group:		X11/Libraries
+Requires:	kde4-kdelibs >= %{version}
+
+%description -n kde-kio-slave
+kde-kio-slave.
+
+%description -n kde-kio-slave -l pl.UTF-8
+kde-kio-slave.
+
 
 %package kate
 Summary:	KDE Advanced Text Editor
@@ -668,6 +692,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/apps/kconf_update/cervisia-normalize_cvsroot.pl
 %{_datadir}/dbus-1/interfaces/*.cervisia.*.xml
 %{_datadir}/kde4/services/cvsservice.desktop
+%{_datadir}/kde4/services/cervisiapart.desktop
 %{_desktopdir}/kde4/cervisia.desktop
 %{_iconsdir}/*/*/actions/vcs_*.*
 %{_iconsdir}/*/*/*/cervisia.png
@@ -716,6 +741,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
+%attr(755,root,root) %{_libdir}/kde4/katebacktracebrowserplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katesnippetsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
@@ -740,16 +769,19 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
+%{_iconsdir}/*/*/apps/kate.*
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kapptemplate
 %dir %{_datadir}/apps/kapptemplate
-#%dir %{_datadir}/apps/kapptemplate/bin
-#%attr(755,root,root) %{_datadir}/apps/kapptemplate/bin/*
 %{_datadir}/config.kcfg/kapptemplate.kcfg
 %{_datadir}/apps/kapptemplate/[!b]*
 %{_desktopdir}/kde4/kapptemplate.desktop
+%dir %{_datadir}/apps/kdevappwizard
+%{_datadir}/apps/kdevappwizard/template_descriptions
+%{_datadir}/apps/kdevappwizard/templates
+%{_iconsdir}/*/*x*/apps/kapptemplate.*
 
 %files kde-resource-kdeaccounts
 %defattr(644,root,root,755)
@@ -928,21 +960,15 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/cvsservice
 %attr(755,root,root) %{_bindir}/noncvslist
 %attr(755,root,root) %{_bindir}/pruneemptydirs
-#%{_mandir}/man1/cvs*.1*
-#%{_mandir}/man1/noncvslist.1*
-#%{_mandir}/man1/pruneemptydirs.1*
 
 %files scripts-doc
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdedoc
 %attr(755,root,root) %{_bindir}/qtdoc
-#%{_mandir}/man1/kdedoc.1*
-#%{_mandir}/man1/qtdoc.1*
 
 %files scripts-kdekillall
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdekillall
-#%{_mandir}/man1/kdekillall.1*
 
 %files umbrello -f umbrello.lang
 %defattr(644,root,root,755)
@@ -950,6 +976,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/umbrello
 %{_desktopdir}/kde4/umbrello.desktop
 %{_iconsdir}/*/*/*/umbrello*.*
+
+%files kpartloader
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kpartloader
+%{_datadir}/apps/kpartloader/kpartloaderui.rc
 
 %files strigi-analyzer
 %defattr(644,root,root,755)
@@ -968,3 +999,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/svn*.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.ksvnd.xml
 %{_iconsdir}/*/*/*/*svn*.*
+
+%files -n kde-kio-slave
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/kde4/kio_perldoc.so
+%dir %{_datadir}/apps/kio_perldoc
+%{_datadir}/apps/kio_perldoc/kio_perldoc.css
+%{_datadir}/apps/kio_perldoc/pod2html.pl
+%{_datadir}/kde4/services/perldoc.protocol
