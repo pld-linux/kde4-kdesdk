@@ -1,16 +1,17 @@
 %define		_state		unstable
 %define		orgname		kdesdk
-%define		qtver		4.4.1
+%define		qtver		4.4.3
 #
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.1.71
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	f3402643318fc7c311f914160cbeca34
+Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -27,12 +28,10 @@ BuildRequires:	binutils-devel
 BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6.1-2
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
-BuildRequires:	gettext-devel
-BuildRequires:	gimp-devel
 BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	giflib-devel
@@ -622,6 +621,7 @@ możliwościach obejmujących m.in.:
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch0 -p0
 
 %build
 install -d build
