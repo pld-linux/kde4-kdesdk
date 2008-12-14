@@ -5,12 +5,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.81
+Version:	4.1.82
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	9095341d45edc2bf13d7749277a106d5
+# Source0-md5:	d07858c4ddfd6aa5eddacb1a521f961b
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
@@ -628,6 +628,7 @@ install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DBUILD_umbrello=0 \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
@@ -970,12 +971,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdekillall
 
-%files umbrello -f umbrello.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/umbrello
-%{_datadir}/apps/umbrello
-%{_desktopdir}/kde4/umbrello.desktop
-%{_iconsdir}/*/*/*/umbrello*.*
+#%files umbrello -f umbrello.lang
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/umbrello
+#%{_datadir}/apps/umbrello
+#%{_desktopdir}/kde4/umbrello.desktop
+#%{_iconsdir}/*/*/*/umbrello*.*
 
 %files kpartloader
 %defattr(644,root,root,755)
