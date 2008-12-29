@@ -5,12 +5,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.82
+Version:	4.1.85
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	d07858c4ddfd6aa5eddacb1a521f961b
+# Source0-md5:	9fff92efdd5ca6f8b60f293a6830fe70
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
@@ -775,12 +775,9 @@ rm -rf $RPM_BUILD_ROOT
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kapptemplate
-%dir %{_datadir}/apps/kapptemplate
 %{_datadir}/config.kcfg/kapptemplate.kcfg
-%{_datadir}/apps/kapptemplate/[!b]*
 %{_desktopdir}/kde4/kapptemplate.desktop
 %dir %{_datadir}/apps/kdevappwizard
-%{_datadir}/apps/kdevappwizard/template_descriptions
 %{_datadir}/apps/kdevappwizard/templates
 %{_iconsdir}/*/*x*/apps/kapptemplate.*
 
