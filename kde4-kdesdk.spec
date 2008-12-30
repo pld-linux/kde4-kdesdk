@@ -1,3 +1,7 @@
+#
+# TODO:
+#	-do something with /usr/share/apps/kdevappwizard/template_previews/
+#
 %define		_state		unstable
 %define		orgname		kdesdk
 %define		qtver		4.4.3
@@ -6,7 +10,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.1.85
-Release:	1
+Release:	0.9
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -22,6 +26,7 @@ BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtSql-devel >= %{qtver}
 BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
+BuildRequires:	QtUiTools-devel >= %{qtver}
 BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
@@ -34,6 +39,7 @@ BuildRequires:	emacs-common
 BuildRequires:	flex
 BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepim-devel >= %{version}
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libjpeg-devel
@@ -44,6 +50,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
+BuildRequires:	strigi-devel
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
