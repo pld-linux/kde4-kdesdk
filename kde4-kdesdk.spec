@@ -1,6 +1,7 @@
 #
 # TODO:
 #	-do something with /usr/share/apps/kdevappwizard/template_previews/
+#	-add man files
 #
 %define		_state		unstable
 %define		orgname		kdesdk
@@ -9,12 +10,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.85
-Release:	0.9
+Version:	4.1.87
+Release:	0.1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	9fff92efdd5ca6f8b60f293a6830fe70
+Source0:	ftp://ftp.pbone.net/mirror/ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	d2fdc4c7f148cfc98d6819d76d34dc02
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
