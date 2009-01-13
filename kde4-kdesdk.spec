@@ -51,7 +51,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
-BuildRequires:	strigi-devel
+BuildRequires:	strigi-devel >= 0.6.3
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
