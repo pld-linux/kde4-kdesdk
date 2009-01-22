@@ -1,52 +1,58 @@
 #
-%define		_state		stable
+# TODO:
+# - do something with /usr/share/apps/kdevappwizard/template_previews/
+# - add man files
+#
+%define		_state		unstable
 %define		orgname		kdesdk
+%define		qtver		4.4.3
 #
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.1.1
-Release:	0.1
+Version:	4.2.0
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	268ea539de7cd5b07dc24d24f593dde1
+# Source0-md5:	79d01b4f10f1ecc283f7860d2c7973e9
+Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
-BuildRequires:	Qt3Support-devel
-BuildRequires:	QtDesigner-devel
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtSql-devel
-BuildRequires:	QtSvg-devel
-BuildRequires:	QtTest-devel
-BuildRequires:	QtUiTools-devel
+BuildRequires:	Qt3Support-devel >= %{qtver}
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtDesigner-devel >= %{qtver}
+BuildRequires:	QtGui-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtSql-devel >= %{qtver}
+BuildRequires:	QtSvg-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
+BuildRequires:	QtUiTools-devel >= %{qtver}
+BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	automoc4
 BuildRequires:	binutils-devel
 BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6.2
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
-BuildRequires:	gettext-devel
-BuildRequires:	gimp-devel
-BuildRequires:	kde4-kdebase-devel
-BuildRequires:	kde4-kdebase-workspace-devel
-BuildRequires:	kde4-kdepim-devel
-BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	kde4-kdebase-devel >= %{version}
+BuildRequires:	kde4-kdepim-devel >= %{version}
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	libxslt-devel
 BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	perl-tools-pod
-BuildRequires:	qt4-build >= 4.4.0
-BuildRequires:	qt4-qmake >= 4.4.0
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
+BuildRequires:	strigi-devel >= 0.6.3
 BuildRequires:	subversion-devel >= 0.37.0
-BuildRequires:	strigi-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +60,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_appdefsdir	%{_datadir}/X11/app-defaults
 %define		_emacspkgdir	/usr/share/emacs/%(rpm -q --qf %{V} emacs-common | tr -d '[a-z]')
 %define		_xemacspkgdir	/usr/share/xemacs-packages
-%define		_zshfcdir	%{_datadir}/zsh/site-functions
+%define		_zshfcdir	/usr/share/zsh/latest/functions
 
 %description
 Software Development Kit for KDE.
@@ -83,7 +89,7 @@ Summary(pl.UTF-8):	Frontend do CVS dla KDE
 Group:		X11/Development/Tools
 #Requires:	%{name}-libcvsservice = %{version}-%{release}
 Requires:	cvs-client >= 1.10
-Requires:	kde4-kdebase-core >= %{version}
+Requires:	kde4-kdebase >= %{version}
 
 %description cervisia
 A KDE CVS frontend. It features:
@@ -147,25 +153,20 @@ Autocomplete definitions for zsh.
 Definicje autouzupełniania dla zsh.
 
 %package lokalize
-Summary:	Computer-aided translation system
-Summary(pl.UTF-8):	Wspomagany komputerowo system translacji
+Summary:	Computer-aided translation system that focuses on productivity and performance
+Summary(pl.UTF-8):	a
 Group:		X11/Development/Tools
 
 %description lokalize
 Lokalize is a computer-aided translation system that focuses on
-productivity and quality assurance. Translator does only creative work
-(of delivering message in his/her mother language in laconic and easy
-to understand form). Lokalize implies parapgraph-by-paragrah
-translation approach (when translating documentation) and
-message-by-message approach (when translating GUI).
+productivity and performance. Translator does only creative work (of
+delivering message in his/her mother language in laconic and easy to
+understand form). Lokalize implies parapgraph-by-paragrah translation
+approach (when translating documentation) and message-by-message
+approach (when translating GUI).
 
 %description lokalize -l pl.UTF-8
-Lokalize jest wspomaganym komputerowo systemem do tłumaczeń,
-skupiającym się na produktywności i zapewnieniu jakości. Translator
-wykonuje tylko twórczą pracę (dostarczania treści w języku ojczystym w
-lakonicznej i łatwej do zrozumienia formie). Lokalize proponuje
-podejście paragraf-po-paragrafie (przy tłumaczeniu dokumentów) oraz
-komunikat-po-komunikacie (tłumacząc GUI).
+a
 
 %package kde-resource-kdeaccounts
 Summary:	A kdeaccounts plugin for the KDE PIM framework
@@ -249,33 +250,34 @@ Group:		X11/Development/Tools
 %description kompare
 Kompare is a program to view the differences between files. Features
 include:
-- comparison of files or directories via a graphical interface
-- bezier-based connection widget lets you see both source and
-  destination as they really appear
-- graphical viewing of patch files in normal, context, unified and
-  diff formats
-- interactive application of differences
-- full network transparency
-- ability to view plain-text diff output in embedded viewer
-- easy navigation of multiple-file diffs with dockable navigation tree
-- graphical interface to commonly used diff command line options
-- switch source and destination with one command
-- diff statistics
+
+  - comparison of files or directories via a graphical interface
+  - bezier-based connection widget lets you see both source and
+    destination as they really appear
+  - graphical viewing of patch files in normal, context, unified and
+    diff formats
+  - interactive application of differences
+  - full network transparency
+  - ability to view plain-text diff output in embedded viewer
+  - easy navigation of multiple-file diffs with dockable navigation tree
+  - graphical interface to commonly used diff command line options
+  - switch source and destination with one command
+  - diff statistics
 
 %description kompare -l pl.UTF-8
 Kompare to program służący do porównywania zmian między plikami.
 Aktualnie dostępne funkcje:
-- porównanie plików lub katalogów poprzez graficzny interfejs
-- przedstawienie źródła i celu za pomocą krzywej Beziera
-- graficzne przeglądanie łat w formatach diff, unidiff, context i
-  zwykłym
-- interaktywne wprowadzanie zmian
-- przezroczystość sieciowa
-- możliwość oglądania wyjścia diff w wewnętrznej przeglądarce
-- łatwa nawigacja między wieloplikowymi diffami wraz z dokowalnym
-  drzewem
-- zamiana źródła i celu za pomocą pojedynczej komendy
-- statystyki diffów
+  - porównanie plików lub katalogów poprzez graficzny interfejs
+  - przedstawienie źródła i celu za pomocą krzywej Beziera
+  - graficzne przeglądanie łat w formatach diff, unidiff, context i
+    zwykłym
+  - interaktywne wprowadzanie zmian
+  - przezroczystość sieciowa
+  - możliwość oglądania wyjścia diff w wewnętrznej przeglądarce
+  - łatwa nawigacja między wieloplikowymi diffami wraz z dokowalnym
+    drzewem
+  - zamiana źródła i celu za pomocą pojedynczej komendy
+  - statystyki diffów
 
 %package kprofilemethod
 Summary:	Kprofilemethod - a set of macros which help profiling using QTime
@@ -535,6 +537,17 @@ Modeler UML Umbrello 1.2 obsługuje następujące rodzaje:
  - diagram aktywności
  - diagram składników.
 
+%package kpartloader
+Summary:	UML Modeler
+Summary(pl.UTF-8):	Modeler UML
+Group:		X11/Development/Tools
+
+%description kpartloader
+UML Modeller
+
+%description kpartloader -l pl.UTF-8
+Modeler UML
+
 %package strigi-analyzer
 Summary:	Strigi Analyzer
 Summary(pl.UTF-8):	Strigi Analyzer
@@ -557,6 +570,19 @@ SVN protocol service.
 
 %description -n kde-kio-svn -l pl.UTF-8
 Obsługa protokołu SVN.
+
+%package -n kde-kio-slave
+Summary:	kde-kio-slave
+Summary(pl.UTF-8):	kde-kio-slave
+Group:		X11/Libraries
+Requires:	kde4-kdelibs >= %{version}
+
+%description -n kde-kio-slave
+kde-kio-slave.
+
+%description -n kde-kio-slave -l pl.UTF-8
+kde-kio-slave.
+
 
 %package kate
 Summary:	KDE Advanced Text Editor
@@ -603,13 +629,14 @@ możliwościach obejmujących m.in.:
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch0 -p0
 
 %build
 install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DSVN_INCLUDES="%{_includedir}/apr-util" \
+	-DBUILD_umbrello=0 \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
@@ -639,7 +666,7 @@ cat kate-plugins.lang >> kate.lang
 %find_lang	kbugbuster	--with-kde
 %find_lang	kompare		--with-kde
 %find_lang	umbrello	--with-kde
-%find_lang	kdesvn-build	--with-kde
+%find_lang	kdesvn-build 	--with-kde
 %find_lang	lokalize	--with-kde
 
 %clean
@@ -674,6 +701,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/apps/kconf_update/cervisia-normalize_cvsroot.pl
 %{_datadir}/dbus-1/interfaces/*.cervisia.*.xml
 %{_datadir}/kde4/services/cvsservice.desktop
+%{_datadir}/kde4/services/cervisiapart.desktop
 %{_desktopdir}/kde4/cervisia.desktop
 %{_iconsdir}/*/*/actions/vcs_*.*
 %{_iconsdir}/*/*/*/cervisia.png
@@ -722,6 +750,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
+%attr(755,root,root) %{_libdir}/kde4/katebacktracebrowserplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katesnippetsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
@@ -746,16 +778,16 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
+%{_iconsdir}/*/*/apps/kate.*
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kapptemplate
-%dir %{_datadir}/apps/kapptemplate
-#%dir %{_datadir}/apps/kapptemplate/bin
-#%attr(755,root,root) %{_datadir}/apps/kapptemplate/bin/*
 %{_datadir}/config.kcfg/kapptemplate.kcfg
-%{_datadir}/apps/kapptemplate/[!b]*
 %{_desktopdir}/kde4/kapptemplate.desktop
+%dir %{_datadir}/apps/kdevappwizard
+%{_datadir}/apps/kdevappwizard/templates
+%{_iconsdir}/*/*x*/apps/kapptemplate.*
 
 %files kde-resource-kdeaccounts
 %defattr(644,root,root,755)
@@ -934,28 +966,27 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/cvsservice
 %attr(755,root,root) %{_bindir}/noncvslist
 %attr(755,root,root) %{_bindir}/pruneemptydirs
-#%{_mandir}/man1/cvs*.1*
-#%{_mandir}/man1/noncvslist.1*
-#%{_mandir}/man1/pruneemptydirs.1*
 
 %files scripts-doc
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdedoc
 %attr(755,root,root) %{_bindir}/qtdoc
-#%{_mandir}/man1/kdedoc.1*
-#%{_mandir}/man1/qtdoc.1*
 
 %files scripts-kdekillall
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdekillall
-#%{_mandir}/man1/kdekillall.1*
 
-%files umbrello -f umbrello.lang
+#%files umbrello -f umbrello.lang
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_bindir}/umbrello
+#%{_datadir}/apps/umbrello
+#%{_desktopdir}/kde4/umbrello.desktop
+#%{_iconsdir}/*/*/*/umbrello*.*
+
+%files kpartloader
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/umbrello
-%{_datadir}/apps/umbrello
-%{_desktopdir}/kde4/umbrello.desktop
-%{_iconsdir}/*/*/*/umbrello*.*
+%attr(755,root,root) %{_bindir}/kpartloader
+%{_datadir}/apps/kpartloader/kpartloaderui.rc
 
 %files strigi-analyzer
 %defattr(644,root,root,755)
@@ -974,3 +1005,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/svn*.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.ksvnd.xml
 %{_iconsdir}/*/*/*/*svn*.*
+
+%files -n kde-kio-slave
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/kde4/kio_perldoc.so
+%dir %{_datadir}/apps/kio_perldoc
+%{_datadir}/apps/kio_perldoc/kio_perldoc.css
+%{_datadir}/apps/kio_perldoc/pod2html.pl
+%{_datadir}/kde4/services/perldoc.protocol
