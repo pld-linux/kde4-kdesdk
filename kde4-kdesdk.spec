@@ -11,7 +11,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.2.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -637,6 +637,7 @@ cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DBUILD_umbrello=0 \
+	-DCMAKE_BUILD_TYPE=release \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
