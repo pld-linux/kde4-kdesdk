@@ -636,7 +636,6 @@ install -d build
 cd build
 %cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DBUILD_umbrello=0 \
 	-DCMAKE_BUILD_TYPE=release \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
@@ -977,12 +976,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdekillall
 
-#%files umbrello -f umbrello.lang
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/umbrello
-#%{_datadir}/apps/umbrello
-#%{_desktopdir}/kde4/umbrello.desktop
-#%{_iconsdir}/*/*/*/umbrello*.*
+%files umbrello -f umbrello.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/umbrello
+%{_datadir}/apps/umbrello
+%{_desktopdir}/kde4/umbrello.desktop
+%{_iconsdir}/*/*x*/*/umbrello*.*
+%{_kdedocdir}/en/umbrello
 
 %files kpartloader
 %defattr(644,root,root,755)
