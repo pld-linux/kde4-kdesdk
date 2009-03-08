@@ -11,7 +11,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.2.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -987,6 +987,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kpartloader
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpartloader
+%dir %{_datadir}/apps/kpartloader
 %{_datadir}/apps/kpartloader/kpartloaderui.rc
 
 %files strigi-analyzer
