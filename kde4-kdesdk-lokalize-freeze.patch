@@ -1,0 +1,21 @@
+Index: src/syntaxhighlighter.cpp
+===================================================================
+--- lokalize/src/syntaxhighlighter.cpp	(wersja 939633)
++++ lokalize/src/syntaxhighlighter.cpp	(kopia robocza)
+@@ -166,14 +166,14 @@
+     foreach (const HighlightingRule &rule, highlightingRules)
+     {
+         QRegExp expression(rule.pattern);
+-        int index = text.indexOf(expression);
++        int index = expression.indexIn(text);
+         while (index >= 0)
+         {
+             int length = expression.matchedLength();
+             QTextCharFormat f=rule.format;
+             f.setFontItalic(!m_approved);
+             setFormat(index, length, f);
+-            index = text.indexOf(expression, index + length);
++            index = expression.indexIn(text, index + length);
+         }
+     }
+ 
