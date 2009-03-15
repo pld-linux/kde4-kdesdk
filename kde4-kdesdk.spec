@@ -16,6 +16,7 @@ License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	e1c95a5ab0e34d2d084677199af0b093
+Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 Patch1:		%{name}-lokalize-freeze.patch
 URL:		http://www.kde.org/
@@ -630,6 +631,7 @@ możliwościach obejmujących m.in.:
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch100 -p0
 %patch0 -p0
 %patch1	-p0
 
