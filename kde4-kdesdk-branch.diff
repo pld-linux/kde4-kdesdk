@@ -1,0 +1,572 @@
+Index: kapptemplate/templates/Python/pykde4app/pykde4app.kdevtemplate
+===================================================================
+--- kapptemplate/templates/Python/pykde4app/pykde4app.kdevtemplate	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/templates/Python/pykde4app/pykde4app.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -3,7 +3,7 @@
+ Name=PyKDE4 GUI Application
+ Name[ca]=Aplicació IGU PyKDE4
+ Name[da]=Grafisk PyKDE4-program
+-Name[de]=Graphische PyKDE4-Anwendung
++Name[de]=Grafische PyKDE4-Anwendung
+ Name[el]=Εφαρμογή PyKDE4
+ Name[es]=Aplicación PyKDE4 con interfaz gráfica
+ Name[et]=PyKDE4 GUI rakendus
+Index: kapptemplate/templates/Python/pyqt4app/pyqt4app.kdevtemplate
+===================================================================
+--- kapptemplate/templates/Python/pyqt4app/pyqt4app.kdevtemplate	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/templates/Python/pyqt4app/pyqt4app.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -3,7 +3,7 @@
+ Name=PyQt4 GUI Application
+ Name[ca]=Aplicació IGU PyQt4
+ Name[da]=Grafisk PyQt4-program
+-Name[de]=Graphische PyQt4-Anwendung
++Name[de]=Grafische PyQt4-Anwendung
+ Name[el]=Εφαρμογή PyQt4
+ Name[es]=Aplicación PyQt4 con interfaz gráfica
+ Name[et]=PyQt4 GUI rakendus
+Index: kapptemplate/templates/ruby/kderubyapp/kderubyapp.kdevtemplate
+===================================================================
+--- kapptemplate/templates/ruby/kderubyapp/kderubyapp.kdevtemplate	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/templates/ruby/kderubyapp/kderubyapp.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -3,7 +3,7 @@
+ Name=KDE 4 Ruby GUI Application
+ Name[ca]=Aplicació IGU en Ruby del KDE 4
+ Name[da]=Grafisk KDE 4 Ruby-program
+-Name[de]=Graphische KDE-4-Ruby-Anwendung
++Name[de]=Grafische KDE-4-Ruby-Anwendung
+ Name[el]=Εφαρμογή KDE4 Ruby
+ Name[es]=Aplicación Ruby para KDE 4 con interfaz gráfica
+ Name[et]=KDE 4 Ruby GUI rakendus
+Index: kapptemplate/templates/C++/kapp4/kapp4.kdevtemplate
+===================================================================
+--- kapptemplate/templates/C++/kapp4/kapp4.kdevtemplate	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/templates/C++/kapp4/kapp4.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -3,7 +3,7 @@
+ Name=KDE 4 GUI Application
+ Name[ca]=Aplicació IGU del KDE 4
+ Name[da]=Et grafisk KDE4-program
+-Name[de]=Graphische KDE-4-Anwendung
++Name[de]=Grafische KDE-4-Anwendung
+ Name[el]=Εφαρμογή του KDE4
+ Name[es]=Una aplicación para el entorno gráfico de KDE 4
+ Name[et]=KDE4 GUI rakendus
+Index: kapptemplate/templates/C++/qmake_qt4guiapp/qmake_qt4guiapp.kdevtemplate
+===================================================================
+--- kapptemplate/templates/C++/qmake_qt4guiapp/qmake_qt4guiapp.kdevtemplate	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/templates/C++/qmake_qt4guiapp/qmake_qt4guiapp.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -4,7 +4,7 @@
+ Name[ca]=Aplicació IGU Qt4
+ Name[cs]=GUI aplikace Qt4
+ Name[da]=Grafisk Qt4-program
+-Name[de]=Graphische Qt-4-Anwendung
++Name[de]=Grafische Qt-4-Anwendung
+ Name[el]=Εφαρμογή GUI της Qt4
+ Name[es]=Aplicación Qt4 para interfaz gráfica
+ Name[et]=Qt4 GUI rakendus
+@@ -36,7 +36,7 @@
+ Comment=Generate a QMake/Qt4 based application with graphical user interface (crossplatform compatible)
+ Comment[ca]=Genera una aplicació basada en QMake/Qt4 amb una interfície gràfica d'usuari (compatible amb multiplataforma)
+ Comment[da]=Genererer et QMake-/Qt4-baseret program med grafisk brugerflade (kompatibel på tværs af platforme)
+-Comment[de]=Erstellt eine auf QMake/Qt 4 basierende Anwendung mit graphischer Benutzeroberfläche (plattformübergreifend)
++Comment[de]=Erstellt eine auf QMake/Qt 4 basierende Anwendung mit grafischer Benutzeroberfläche (plattformübergreifend)
+ Comment[el]=Δημιουργία μιας εφαρμογής βασισμένη στο QMake/Qt4 με γραφικό περιβάλλον (συμβατή με πολλαπλές πλατφόρμες)
+ Comment[es]=Genera una aplicación basada en QMake/Qt4 con interfaz gráfica de usuario (compatible multiplataforma)
+ Comment[et]=QMake/Qt4 põhise rakenduse loomine graafilise kasutajaliidesega (ühildub paljude platvormidega)
+Index: kapptemplate/generatepage.cpp
+===================================================================
+--- kapptemplate/generatepage.cpp	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ kapptemplate/generatepage.cpp	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -192,6 +192,7 @@
+         }
+         unpackArchive(arch->directory(), dest.toLocalFile());
+     }
++    delete arch;
+ 
+     feedback.append(i18n("Success!\n"));
+     ui_generate.label->setText(feedback);
+Index: doc/umbrello/uml_basics.docbook
+===================================================================
+--- doc/umbrello/uml_basics.docbook	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/umbrello/uml_basics.docbook	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -706,13 +706,14 @@
+ </para>
+ </sect4>
+ </sect3>
+-<sect3 id="extended-entity-relationship-concepts">
++</sect2>
++<sect2 id="extended-entity-relationship-concepts">
+ <title>Extended Entity Relationship (EER) Diagram Concepts</title>
+-<sect4 id="specialization">
++<sect3 id="specialization">
+ <title>Specialization</title>
+ <para> Specialization is a way to form new entities using entities that have already been defined. The new entities, known as derived entities, take over (or inherit) attributes of the pre-existing entities, which are referred to as base entities . It is intended to help reuse existing data with little or no modification.</para>
+ <para> In Umbrello, one can specify Disjoint and Overlapping Specialization</para>
+- <sect5 id="disjoint-specialization">
++ <sect4 id="disjoint-specialization">
+    <title>Disjoint Specialization</title>
+    <para>Disjoint Specialization specifies that the subclasses of the specialization must be disjoint. This means that an entity can be a member of at most one of the derived entities of the specialization</para>
+    <para>
+@@ -732,8 +733,8 @@
+ 	</mediaobject>
+    </screenshot>
+     </para>
+- </sect5>
+- <sect5 id="overlapping-specialization">
++ </sect4>
++ <sect4 id="overlapping-specialization">
+    <title>Overlapping Specialization</title>
+    <para>When the derived entities are not constrained to be disjoint, their set of entities are said to be in overlapping specialization. This means that the same real world entity may be a member of more than one derived entity of the specialization</para>
+    <para>
+@@ -753,8 +754,8 @@
+ 	</mediaobject>
+    </screenshot>
+   </para>
+- </sect5>
+- <sect5 id="category">
++ </sect4>
++ <sect4 id="category">
+ 
+  <title>Category</title>
+  <para>
+@@ -776,9 +777,8 @@
+ 	</mediaobject>
+    </screenshot>
+   </para>
+- </sect5>
++ </sect4>
+ 
+-</sect4>
+ </sect3>
+ </sect2>
+ 
+Index: doc/cervisia/index.docbook
+===================================================================
+--- doc/cervisia/index.docbook	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/cervisia/index.docbook	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -652,7 +652,7 @@
+ <varlistentry>
+ <term><guilabel>Working folder:</guilabel></term>
+ <listitem><para>
+-The folder under which the module should be checked out. Note that the
++The folder under which the module should be checked out. Note that
+ the working copy toplevel folder is named after the module you are retrieving,
+ unless you give it an alternative name in the <guilabel>Check out as:</guilabel>
+ field.
+@@ -1806,7 +1806,7 @@
+ <listitem><para>Show other events - shows events not included in the above</para></listitem>
+ <listitem><para>Only user - shows only events caused by a certain user</para></listitem>
+ <listitem><para>Only file names matching - filters file names by a regular expression</para></listitem>
+-<listitem><para>Only dirnames matching - filters folder names by a regular expression</para></listitem>
++<listitem><para>Only folders matching - filters folder names by a regular expression</para></listitem>
+ </itemizedlist>
+ 
+ <para>
+@@ -1957,7 +1957,7 @@
+ </para></note>
+ 
+ <para>
+-The comand issued to update to a branch or tag is:
++The command issued to update to a branch or tag is:
+ <screen><command>cvs update -r <replaceable>tag</replaceable></command></screen>
+ </para>
+ 
+Index: doc/scripts/kdesvn-build/kdesvn-build.desktop
+===================================================================
+--- doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../tags/KDE/4.2.1/kdesdk)	(wersja 0)
++++ doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -0,0 +1,15 @@
++# KDE Config File
++[Desktop Entry]
++X-DocPath=kdesvn-build/index.html
++Name=KDE SVN Build
++Name[de]=KDE-SVN-Build
++Name[es]=Construcción SVN de KDE
++Name[it]=Generazione di KDE da SVN
++Name[pt_BR]=Construtor SVN do KDE
++Name[sv]=Bygg KDE från SVN
++Name[uk]=Збирання KDE з SVN
++Name[zh_TW]=KDE SVN 編譯
++Categories=Qt;KDE;Development;
++Exec=kdialog --sorry "KDE SVN Build is a command-line only program. Please read the handbook at help:/kdesvn-build for more info."
++Terminal=true
++NoDisplay=true
+Index: doc/scripts/kdesvn-build/index.docbook
+===================================================================
+--- doc/scripts/kdesvn-build/index.docbook	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/scripts/kdesvn-build/index.docbook	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -2261,7 +2261,7 @@
+ the tools normally used (including &automake; and &make;). It is especially useful for those who
+ are performing distributed compilation as it is much faster than the normal
+ build system in this situation. However, even for a single computer build,
+-&unsermake; is faster than the competition.
++&unsermake; is faster than the competitors.
+ </para>
+ 
+ <para>In addition, &unsermake; includes support for estimating the progress of
+@@ -2742,7 +2742,7 @@
+ <sect2 id="kdesvn-build-color">
+ <title>Color output</title>
+ <para>When being run from &konsole; or a different terminal, &kdesvn-build;
+-will normally display with colorized test.</para>
++will normally display with colorized text.</para>
+ 
+ <para>You can disable this by using the <option>--no-color</option> on the
+ command line, or by setting the &colorful-output; option in the <link linkend="configure-data">configuration file</link> to
+Index: doc/scripts/kdesvn-build/CMakeLists.txt
+===================================================================
+--- doc/scripts/kdesvn-build/CMakeLists.txt	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/scripts/kdesvn-build/CMakeLists.txt	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -1,2 +1,5 @@
+ ########### install files ###############
+ kde4_create_handbook(index.docbook INSTALL_DESTINATION ${HTML_INSTALL_DIR}/en)
++
++install( FILES kdesvn-build.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
++
+Index: doc/lokalize/index.docbook
+===================================================================
+--- doc/lokalize/index.docbook	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/lokalize/index.docbook	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -21,7 +21,7 @@
+ </authorgroup>
+ 
+ <copyright>
+-<year>2007-2008</year><holder>Nick Shaforostoff</holder>
++<year>2007-2009</year><holder>Nick Shaforostoff</holder>
+ </copyright>
+ 
+ <legalnotice>&FDLNotice;</legalnotice>
+@@ -73,6 +73,15 @@
+ when in the <guilabel>WebQueries</guilabel>.
+ </para>
+ </tip>
++
++<para>
++A message may be <emphasis>translated</emphasis> or <emphasis>untranslated</emphasis>.
++A translated message translation may be <emphasis>approved</emphasis> or <emphasis>non-approved</emphasis> (also called <emphasis>fuzzy</emphasis> sometimes).
++If the message is non-approved, its translation is rendered in italics.
++&lokalize; allows you to easily navigate through the file according to the state of their translation.
++See <guilabel>Go</guilabel> menu for the shortcuts.
++When navigating, untranslated messages are treated as non-approved.
++</para>
+ </chapter>
+ 
+ <chapter id="projects">
+@@ -96,7 +105,6 @@
+ </para>
+ </note>
+ 
+-
+ <sect1 id="project-view">
+ <title>Project Overview</title>
+ 
+@@ -105,30 +113,10 @@
+ such as the percentage of translated messages completed and the last translator.
+ It allows you to open a selected file in new tab of the current &lokalize;, window.
+ </para>
+-
+ </sect1>
+ 
+-<sect1 id="multifile-ops">
+-<title>Operations on multiple files</title>
+-
+-<!-- TODO -->
+-<para>
+-Currently &lokalize; supports searching, replacing, and spellchecking within
+-multiple files. Select the items that you are interested in, then choose the
+-<guimenuitem>Find in files</guimenuitem> option from the context menu. The first
+-match will be displayed in the usual &lokalize; window. You can then proceed by
+-pressing the <keycap>F3</keycap> button to find the next match. If you press the
+-<keycap>F3</keycap> button and there are no matches left in the current file,
+-then the search will continue in the next file and so on. To reset the multiple
+-file search state, press <keycombo>&Ctrl;<keycap>F</keycap></keycombo> in &lokalize;, and the editor
+-window will reset.
+-</para>
+-</sect1>
+-
+ </chapter>
+ 
+-
+-
+ <chapter id="glossary">
+ <title>Glossary</title>
+ 
+@@ -163,13 +151,38 @@
+ <title>Translation Memory</title>
+ 
+ <para>
+-The <guilabel>Translation Memory View</guilabel> allows you to drag and drop a
++The <guilabel>Translation Memory</guilabel> view allows you to drag and drop a
+ folder with translation files from say Dolphin into the view,
+ and then, within few minutes, translation suggestions will be shown automatically on the message entry switch.
+ To insert the translation suggestions into the file, use 
+ <keycombo>&Ctrl;<keycap>1</keycap></keycombo>, 
+ <keycombo>&Ctrl;<keycap>2</keycap></keycombo> and so on, depending on the number of suggestion.
+ </para>
++
++<para>
++Pressing <keycombo><keycap>F7</keycap></keycombo> will open <guilabel>Translation Memory</guilabel> tab, which allows free querying TM.
++Clicking a search result will open corresponding file on corresponding entry.
++If you want to quickly open some file in the project (and it is added to TM), then instead of browsing <guilabel>Project Overview</guilabel>
++you just type its name into <guilabel>File mask</guilabel> field accompanied by '*'.
++</para>
++
++<para>
++TM engine indexes all entries, including fuzzy and untranslated ones.
++This allows it to completely replace Search-in-Files feature which required scanning every file in the project each time a search is done.
++</para>
++
++<screenshot>
++<screeninfo>&lokalize; with translation memory search results for the current entry</screeninfo>
++  <mediaobject>
++    <imageobject>
++      <imagedata fileref="tmview.png" format="PNG"/>
++    </imageobject>
++    <textobject>
++      <phrase>&lokalize; with translation memory search results for the current entry</phrase>
++    </textobject>
++  </mediaobject>
++</screenshot>
++
+ </chapter>
+ 
+ 
+@@ -288,7 +301,7 @@
+ </para>
+ 
+ <para>
+-Program Copyright &copy; 2007-2008, Nick Shaforostoff
++Program Copyright &copy; 2007-2009, Nick Shaforostoff
+ <email>shaforostoff@kde.ru</email>
+ </para>
+ 
+@@ -297,7 +310,7 @@
+ </para>
+ 
+ <para>
+-Documentation Copyright &copy; 2007-2008 Nick Shaforostoff
++Documentation Copyright &copy; 2007-2009 Nick Shaforostoff
+ <email>shaforostoff@kde.ru</email>
+ </para>
+ 
+Index: doc/lokalize/tmview.png
+===================================================================
+Nie można wyświetlić: plik binarny.
+svn:mime-type = application/octet-stream
+
+Zmiany atrybutów dla: doc/lokalize/tmview.png
+___________________________________________________________________
+Dodane: svn:mime-type
+   + application/octet-stream
+
+Index: doc/kompare/index.docbook
+===================================================================
+--- doc/kompare/index.docbook	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ doc/kompare/index.docbook	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -207,12 +207,15 @@
+ <listitem><para>The vertical space between the source and destination view not only makes it possible to clearly see the start and end of lines in each of the panes, 
+ but is also a grip handle that allows adjustment of percentage occupied between the source and destinate views that comprise the view pane. 
+ To change pane size for one of the views, hover the mouse pointer over the grip handle then hold down the mouse button and drag left or right. 
+-Naturally, increasing the area of one pane will decrease the area available to the opposite pane within the view panel area.</para></listitem>
++Naturally, increasing the area of one pane will decrease the area available to the opposite pane within the view panel area.</para>
++<para>A second horizontal handle is available between the navigation panel and the source and destination view.</para></listitem>
+ </varlistentry>
+ <varlistentry>
+ <term>Docking</term>
+-<listitem><para>The main workspace can be undocked from the main interface by clicking the <guibutton>undock</guibutton> button located top right of the main workspace panel. 
+-This opens the main workspace in a window of its own, allowing it to be maximized and resized across the screen.</para></listitem>
++<listitem><para>The navigation panel can be undocked from the main interface by clicking the <guibutton>undock</guibutton> button located top right of the panel. 
++This opens it in a window of its own, allowing you to move it across the screen. You can even hide the navigation panel by clicking the <guibutton>hide</guibutton> button.
++To display a hidden navigation bar again, click with the &RMB; into the menubar and select <guilabel>Navigation</guilabel> from the context menu.
++</para></listitem>
+ </varlistentry>
+ <varlistentry>
+ <term>Statusbar Toggle</term>
+@@ -240,11 +243,11 @@
+ <variablelist>
+ <varlistentry>
+ <term><guilabel>Old file:</guilabel></term>
+-<listitem><para>The file name of what is usually the destination file or file that is unmodified and to which differences will be applied.</para></listitem>
++<listitem><para>The file name of what is usually the source file or file that is unmodified.</para></listitem>
+ </varlistentry>
+ <varlistentry>
+ <term><guilabel>New file:</guilabel></term>
+-<listitem><para>The file name of what is usually the source file or file that is modified.</para></listitem>
++<listitem><para>The file name of what is usually the destination file or file that is modified and to which differences will be applied.</para></listitem>
+ </varlistentry>
+ <varlistentry>
+ <term><guilabel>Format:</guilabel></term>
+@@ -338,7 +341,7 @@
+ 
+ <sect2 id="unapplying-all-differences">
+ <title>Unapplying All Differences</title>
+-<para>To differences that have been applied select 
++<para>To revert all differences that have been applied previously select 
+ <menuchoice><guimenu>Difference</guimenu><guimenuitem>Unapply All</guimenuitem></menuchoice> (<keycombo action="simul">&Ctrl;<keycap>U</keycap></keycombo>).</para>
+ </sect2>
+ 
+Index: cervisia/cervisia.desktop
+===================================================================
+--- cervisia/cervisia.desktop	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ cervisia/cervisia.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -6,7 +6,7 @@
+ GenericName[cs]=Rozhraní pro CVS
+ GenericName[cy]=Ochr Blaen CVS
+ GenericName[da]=CVS-brugerflade
+-GenericName[de]=Graphische Oberfläche für CVS
++GenericName[de]=Grafische Oberfläche für CVS
+ GenericName[el]=Σύστημα περιβάλλοντος CVS
+ GenericName[eo]=Fasado por la versioadministrilo "CVS"
+ GenericName[es]=Interfaz CVS
+Index: lokalize/src/project/kde-i18n-lists.h
+===================================================================
+--- lokalize/src/project/kde-i18n-lists.h	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ lokalize/src/project/kde-i18n-lists.h	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -40,14 +40,22 @@
+ static inline QString getMaillingList()
+ {
+     QString lang(KGlobal::locale()->language());
+-    if(lang.startsWith("ru"))
+-        return "kde-russian@lists.kde.ru";
++    if(lang.startsWith("ca"))
++        return "kde-i18n-ca@kde.org";
+     if(lang.startsWith("de"))
+         return "kde-i18n-de@kde.org";
+     if(lang.startsWith("it"))
+         return "kde-i18n-it@kde.org";
+-    if(lang.startsWith("ca"))
+-        return "kde-i18n-ca@kde.org";
++    if(lang.startsWith("nb"))
++        return "i18n-nb@lister.ping.uio.no";
++    if(lang.startsWith("nn"))
++        return "i18n-nn@lister.ping.uio.no";
++    if(lang.startsWith("ru"))
++        return "kde-russian@lists.kde.ru";
++    if(lang.startsWith("se"))
++        return "i18n-sme@lister.ping.uio.no";
++    if(lang.startsWith("sl"))
++        return "lugos-slo@lugos.si";
+ 
+     return "kde-i18n-doc@kde.org";
+ }
+Index: lokalize/src/catalog/pos.h
+===================================================================
+--- lokalize/src/catalog/pos.h	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ lokalize/src/catalog/pos.h	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -43,18 +43,14 @@
+  * This struct represents a position in a catalog.
+  * A position is a tuple (index,pluralform,textoffset).
+  *
+- * limits:
+- * 32768 entries in the catalog
+- * 4294967296 chars in one entry
+- *
+  * @short Structure that represents a position in a catalog
+  */
+ struct DocPosition
+ {
+-    short entry:16;
++    int entry:32;
+     Part part:8;
+     char form:8;
+-    uint offset:32;
++    uint offset:16;
+ 
+     DocPosition():
+         entry(-1),
+@@ -63,14 +59,14 @@
+         offset(0)
+         {}
+ 
+-    DocPosition(short e, Part p, char f=0, uint o=0):
++    DocPosition(int e, Part p, char f=0, uint o=0):
+         entry(e),
+         part(p),
+         form(f),
+         offset(o)
+         {}
+ 
+-    DocPosition(short e, char f=0, uint o=0):
++    DocPosition(int e, char f=0, uint o=0):
+         entry(e),
+         part(Msgstr),
+         form(f),
+@@ -79,12 +75,7 @@
+ 
+ 
+ };
+-/*
+-Q_DECLARE_METATYPE(DocPosition)
+ 
+-const QDBusArgument &operator>>(const QDBusArgument &argument, DocPosition& pos);
+-QDBusArgument &operator<<(QDBusArgument &argument, const DocPosition &pos);
+-*/
+ bool switchPrev(Catalog*&,DocPosition& pos,bool useMsgId=false);
+ bool switchNext(Catalog*&,DocPosition& pos,bool useMsgId=false);
+ 
+@@ -95,14 +86,14 @@
+  */
+ struct DocPos
+ {
+-    short entry:16;
++    int entry:24;
+     uchar form:8;
+ 
+     DocPos():
+         entry(-1),
+         form(0)
+         {}
+-    DocPos(short _entry,uchar _form):
++    DocPos(int _entry, uchar _form):
+         entry(_entry),
+         form(_form)
+         {}
+Index: lokalize/src/catalog/catalog.cpp
+===================================================================
+--- lokalize/src/catalog/catalog.cpp	(.../tags/KDE/4.2.1/kdesdk)	(wersja 939653)
++++ lokalize/src/catalog/catalog.cpp	(.../branches/KDE/4.2/kdesdk)	(wersja 939653)
+@@ -116,20 +116,20 @@
+     return m_storage->size();
+ }
+ 
++static DocPosition alterForSinglePlural(const Catalog* th, DocPosition pos)
++{
++    //if source lang is english (implied) and target lang has only 1 plural form (e.g. Chinese)
++    if (KDE_ISUNLIKELY(th->numberOfPluralForms()==1 && th->isPlural(pos)))
++        pos.form=1;
++    return pos;
++}
++
+ QString Catalog::msgid(const DocPosition& pos, const bool noNewlines) const
+ {
+     if (KDE_ISUNLIKELY( !m_storage || m_storage->isEmpty() ))
+         return d->CatalogPrivate::_emptyStr;
+ 
+-    //if source lang is english (implied) and target lang has only 1 plural form (e.g. Chinese)
+-    if (KDE_ISUNLIKELY(d->_numberOfPluralForms==1))
+-    {
+-        DocPosition newPos=pos;
+-        newPos.form=1;
+-        return m_storage->source(newPos);
+-    }
+-
+-    return m_storage->source(pos);
++    return m_storage->source(alterForSinglePlural(this, pos));
+ }
+ 
+ QString Catalog::msgstr(const DocPosition& pos, const bool noNewlines) const
+@@ -147,7 +147,7 @@
+     if (KDE_ISUNLIKELY( !m_storage || m_storage->isEmpty() ))
+         return CatalogString();
+ 
+-    return m_storage->sourceWithTags(pos);
++    return m_storage->sourceWithTags(alterForSinglePlural(this, pos));
+ 
+ }
+ CatalogString Catalog::targetWithTags(const DocPosition& pos) const
+
+Zmiany atrybutów dla: .
+___________________________________________________________________
+Dodane: svn:externals
+   + 
+
+
