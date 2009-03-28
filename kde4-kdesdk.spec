@@ -5,20 +5,19 @@
 #
 %define		_state		stable
 %define		orgname		kdesdk
-%define		qtver		4.4.3
+%define		qtver		4.5.0
 #
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.2.1
-Release:	3
+Version:	4.2.2
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	e1c95a5ab0e34d2d084677199af0b093
+# Source0-md5:	018767d862229899f4a648a6c36fd0f6
 Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
-Patch1:		%{name}-lokalize-freeze.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -631,9 +630,8 @@ możliwościach obejmujących m.in.:
 
 %prep
 %setup -q -n %{orgname}-%{version}
-%patch100 -p0
+#%patch100 -p0
 %patch0 -p0
-%patch1	-p0
 
 %build
 install -d build
