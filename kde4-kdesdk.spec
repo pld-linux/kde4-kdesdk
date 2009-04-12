@@ -630,7 +630,7 @@ możliwościach obejmujących m.in.:
 
 %prep
 %setup -q -n %{orgname}-%{version}
-#%patch100 -p0
+%patch100 -p0
 %patch0 -p0
 
 %build
