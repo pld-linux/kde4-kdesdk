@@ -1,7 +1,7 @@
 Index: kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop
 ===================================================================
---- kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -12,6 +12,7 @@
  Name[et]=Kate tagasijälituse brauser
  Name[fr]=Explorateur de piles d'appels de Kate
@@ -20,8 +20,8 @@ Index: kate/plugins/backtracebrowser/katebacktracebrowserplugin.desktop
  Comment[km]=ទិដ្ឋភាព​ឧបករណ៍​រុករក​ដាន​ថយក្រោយ
 Index: kate/plugins/kate-ctags/katectagsplugin.desktop
 ===================================================================
---- kate/plugins/kate-ctags/katectagsplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kate/plugins/kate-ctags/katectagsplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kate/plugins/kate-ctags/katectagsplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kate/plugins/kate-ctags/katectagsplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -13,6 +13,7 @@
  Name[fr]=Module externe pour CTags
  Name[ga]=Breiseán CTags
@@ -40,8 +40,8 @@ Index: kate/plugins/kate-ctags/katectagsplugin.desktop
  Comment[km]=រក​មើល​និយមន័យ/កា​រប្រកាស​ជា​មួយ CTags
 Index: kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop
 ===================================================================
---- kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -13,7 +13,7 @@
  Name[et]=Kate JavaScripti konsooli aken
  Name[ga]=Fuinneog Chonsóil Javascript Kate
@@ -53,8 +53,8 @@ Index: kate/plugins/kjswrapper/samples/katekjsconsolewindow.desktop
  Name[km]=បង្អួច​កុងសូល Javascript Kate
 Index: kate/plugins/katebuild-plugin/katebuildplugin.desktop
 ===================================================================
---- kate/plugins/katebuild-plugin/katebuildplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kate/plugins/katebuild-plugin/katebuildplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kate/plugins/katebuild-plugin/katebuildplugin.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kate/plugins/katebuild-plugin/katebuildplugin.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -12,6 +12,7 @@
  Name[et]=Kate ehutamisplugin
  Name[fr]=Module externe de construction pour Kate
@@ -73,8 +73,8 @@ Index: kate/plugins/katebuild-plugin/katebuildplugin.desktop
  Comment[km]=Compile ឬ Make និង​ញែកសារ​កំហុស
 Index: kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop
 ===================================================================
---- kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -10,6 +10,7 @@
  Comment[fr]=Lanceur %{APPNAME}
  Comment[ga]=Feidhmitheoir %{APPNAME}
@@ -85,8 +85,8 @@ Index: kapptemplate/templates/C++/runner/%{APPNAMELC}.desktop
  Comment[ko]=%{APPNAME} 실행기
 Index: kapptemplate/templates/C++/runner/runner.kdevtemplate
 ===================================================================
---- kapptemplate/templates/C++/runner/runner.kdevtemplate	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ kapptemplate/templates/C++/runner/runner.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- kapptemplate/templates/C++/runner/runner.kdevtemplate	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ kapptemplate/templates/C++/runner/runner.kdevtemplate	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -9,6 +9,7 @@
  Name[fr]=Modèle de lanceur pour Plasma
  Name[ga]=Teimpléad d'Fheidhmitheoirí Plasma
@@ -105,8 +105,8 @@ Index: kapptemplate/templates/C++/runner/runner.kdevtemplate
  Comment[km]=ពុម្ពកម្មវិធី​រត់​ប្លាស្មា
 Index: doc/scripts/kdesvn-build/kdesvn-build.desktop
 ===================================================================
---- doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ doc/scripts/kdesvn-build/kdesvn-build.desktop	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -6,8 +6,10 @@
  Name[de]=KDE-SVN-Build
  Name[es]=Construcción SVN de KDE
@@ -120,8 +120,8 @@ Index: doc/scripts/kdesvn-build/kdesvn-build.desktop
  Name[pt_BR]=Construtor SVN do KDE
 Index: lokalize/src/mergemode/mergecatalog.cpp
 ===================================================================
---- lokalize/src/mergemode/mergecatalog.cpp	(.../tags/KDE/4.2.2/kdesdk)	(wersja 952918)
-+++ lokalize/src/mergemode/mergecatalog.cpp	(.../branches/KDE/4.2/kdesdk)	(wersja 952918)
+--- lokalize/src/mergemode/mergecatalog.cpp	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ lokalize/src/mergemode/mergecatalog.cpp	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
 @@ -146,6 +146,11 @@
      return item;
  }
@@ -176,6 +176,21 @@ Index: lokalize/src/mergemode/mergecatalog.cpp
          ++i.entry;
      }
      return true;
+Index: lokalize/src/project/project.h
+===================================================================
+--- lokalize/src/project/project.h	(.../tags/KDE/4.2.2/kdesdk)	(wersja 956244)
++++ lokalize/src/project/project.h	(.../branches/KDE/4.2/kdesdk)	(wersja 956244)
+@@ -122,8 +122,8 @@
+     void defineNewTerm(QString en=QString(),QString target=QString());
+ 
+ 
+-    void registerEditor(EditorWindow* e){m_editors<<e;}
+-    void unregisterEditor(EditorWindow* e){m_editors.remove(m_editors.indexOf(e));}
++    void registerEditor(EditorWindow* e){}
++    void unregisterEditor(EditorWindow* e){}
+ 
+ 
+ private:
 
 Zmiany atrybutów dla: .
 ___________________________________________________________________
