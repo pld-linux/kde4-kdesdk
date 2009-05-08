@@ -35,7 +35,7 @@ BuildRequires:	binutils-devel
 BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
-BuildRequires:	cmake >= 2.6.2
+BuildRequires:	cmake >= 2.6.3
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
