@@ -1,9 +1,0 @@
---- kioslave/svn/CMakeLists.txt~	2008-01-05 00:57:53.000000000 +0100
-+++ kioslave/svn/CMakeLists.txt	2008-10-28 01:56:00.341958250 +0100
-@@ -1,5 +1,5 @@
- if(SUBVERSION14)
--include_directories(${SVN_INCLUDES})
-+include_directories(${SVN_INCLUDES} /usr/include/apr-util)
- else(SUBVERSION14)
- add_definitions(${SVN_INCLUDES})
- endif(SUBVERSION14)
