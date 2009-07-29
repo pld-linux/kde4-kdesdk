@@ -6,17 +6,17 @@
 %define		_state		stable
 %define		orgname		kdesdk
 %define		qtver		4.5.0
-#
+
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.2.4
+Version:	4.3.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fb0672edb1e24859614935764ef4e8d3
-Patch100:	%{name}-branch.diff
+# Source0-md5:	eda2376a54d66899bf7beb60cc0843b1
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	Qt3Support-devel >= %{qtver}
@@ -742,7 +742,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/prevuntranslated.png
 %{_iconsdir}/*/*/actions/transsearch.png
 %{_iconsdir}/*/*/actions/catalogmanager.png
-%{_iconsdir}/*/*/actions/autodiff.png
 %{_iconsdir}/*/*/actions/approved.svgz
 %{_iconsdir}/*/*/apps/lokalize.svgz
 
@@ -753,6 +752,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
+%attr(755,root,root) %{_libdir}/kde4/kate_kttsd.so
+%attr(755,root,root) %{_libdir}/kde4/katepybrowseplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katexmlcheckplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katebacktracebrowserplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
@@ -961,6 +963,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/optimizegraphics
 %attr(755,root,root) %{_bindir}/wcgrep
 %{_datadir}/apps/katepart/syntax/kdesvn-buildrc.xml
+%{_desktopdir}/kde4/kdesvn-build.desktop
 
 %files scripts-cvs
 %defattr(644,root,root,755)
@@ -985,7 +988,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/umbrello
 %{_desktopdir}/kde4/umbrello.desktop
 %{_iconsdir}/*/*x*/*/umbrello*.*
-%{_kdedocdir}/en/umbrello
 
 %files kpartloader
 %defattr(644,root,root,755)
@@ -1015,6 +1017,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/kio_perldoc.so
 %dir %{_datadir}/apps/kio_perldoc
-%{_datadir}/apps/kio_perldoc/kio_perldoc.css
+#%{_datadir}/apps/kio_perldoc/kio_perldoc.css
 %{_datadir}/apps/kio_perldoc/pod2html.pl
 %{_datadir}/kde4/services/perldoc.protocol
