@@ -56,7 +56,7 @@ BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_gimpdir	%(gimptool --gimpdatadir 2>/dev/null)
+%define		_gimpdir	%{_datadir}/gimp/2.0
 %define		_appdefsdir	%{_datadir}/X11/app-defaults
 %define		_emacspkgdir	/usr/share/emacs/%(rpm -q --qf %{V} emacs-common | tr -d '[a-z]')
 %define		_xemacspkgdir	/usr/share/xemacs-packages
