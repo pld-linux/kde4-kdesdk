@@ -372,29 +372,31 @@ A cvsservice library - header files.
 %description libcvsservice-devel -l pl.UTF-8
 Biblioteka cvsservice - pliki nagłówkowe.
 
-%package palette-gimp
+%package palettes-gimp
 Summary:	Package which adds the KDE Default palette to GIMP
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
 Group:		X11/Applications/Graphics
+Obsoletes:	kde4-kdesdk-palette-gimp
 Requires:	gimp
 
-%description palette-gimp
+%description palettes-gimp
 This package adds the KDE Default palette to GIMP.
 
-%description palette-gimp -l pl.UTF-8
+%description palettes-gimp -l pl.UTF-8
 Pakiet dodający domyślną paletę kolorów KDE do GIMP-a.
 
-%package palette-xpaint
+%package palettes-xpaint
 Summary:	Package which adds the KDE Default palette to XPaint
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
 Group:		X11/Applications/Graphics
+Obsoletes:	kde4-kdesdk-palatte-xpaint
 Requires:	xorg-lib-libXt >= 1.0
 Requires:	xpaint
 
-%description palette-xpaint
+%description palettes-xpaint
 This package adds the KDE Default palette to XPaint.
 
-%description palette-xpaint -l pl.UTF-8
+%description palettes-xpaint -l pl.UTF-8
 Pakiet dodający domyślną paletę kolorów KDE do XPainta.
 
 %package po2xml
@@ -910,11 +912,11 @@ rm -rf $RPM_BUILD_ROOT
 #%{_includedir}/repository_stub.h
 #%attr(755,root,root) %{_libdir}/libcvsservice.so
 
-%files palette-gimp
+%files palettes-gimp
 %defattr(644,root,root,755)
 %{_gimpdir}/palettes
 
-%files palette-xpaint
+%files palettes-xpaint
 %defattr(644,root,root,755)
 %{_appdefsdir}/*
 
