@@ -1,6 +1,5 @@
 #
 # TODO:
-# - do something with /usr/share/apps/kdevappwizard/template_previews/
 # - add man files
 #
 %define		_state		stable
@@ -11,7 +10,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.3.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -792,6 +791,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kapptemplate.desktop
 %dir %{_datadir}/apps/kdevappwizard
 %{_datadir}/apps/kdevappwizard/templates
+%{_datadir}/apps/kdevappwizard/template_previews
 %{_iconsdir}/*/*x*/apps/kapptemplate.*
 
 %files kde-resource-kdeaccounts
@@ -852,6 +852,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/servicetypes/kompare*.desktop
 %{_desktopdir}/kde4/kompare.desktop
 %{_iconsdir}/*/*/*/kompare.*
+%{_includedir}/kompare
 
 %files kprofilemethod
 %defattr(644,root,root,755)
