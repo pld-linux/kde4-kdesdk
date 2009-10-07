@@ -2,19 +2,22 @@
 # TODO:
 # - add man files
 #
-%define		_state		stable
 %define		orgname		kdesdk
+%define		_state		unstable
+%define		snap		svn1027298
 %define		qtver		4.5.2
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.1
+Version:	4.3.69
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	e1fda958d1f0a2ac39c0cc04814d1fd7
+# get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/KDE/kdesdk
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
+# Source0-md5:	93f68721fc5931c2ddb5924a8e54fe0d
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -38,8 +41,9 @@ BuildRequires:	cmake >= 2.6.3
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
+BuildRequires:	hunspell-devel
 BuildRequires:	kde4-kdebase-devel >= %{version}
-BuildRequires:	kde4-kdepim-devel >= %{version}
+#BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
@@ -630,7 +634,8 @@ możliwościach obejmujących m.in.:
   polecenie powłoki
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-%{version}%{snap}
+#%setup -q -n %{orgname}-%{version}
 #%patch100 -p0
 %patch0 -p0
 
@@ -734,11 +739,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/diff.png
 %{_iconsdir}/*/*/actions/preverror.png
 %{_iconsdir}/*/*/actions/prevfuzzyuntrans.png
+%{_iconsdir}/*/*/actions/prevpo.png
+%{_iconsdir}/*/*/actions/prevtemplate.png
 %{_iconsdir}/*/*/actions/search2msgstr.png
 %{_iconsdir}/*/*/apps/lokalize.png
 %{_iconsdir}/*/*/actions/nexterror.png
 %{_iconsdir}/*/*/actions/nextfuzzy.png
 %{_iconsdir}/*/*/actions/nextfuzzyuntrans.png
+%{_iconsdir}/*/*/actions/nextpo.png
+%{_iconsdir}/*/*/actions/nexttemplate.png
 %{_iconsdir}/*/*/actions/nextuntranslated.png
 %{_iconsdir}/*/*/actions/prevuntranslated.png
 %{_iconsdir}/*/*/actions/transsearch.png
@@ -749,6 +758,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kate -f kate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kate
+%attr(755,root,root) %{_bindir}/katesnippetstng_editor
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
@@ -760,6 +770,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katesnippetsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katesnippets_tngplugin.so
 %attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
@@ -780,11 +791,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kate*.desktop
 %{_datadir}/kde4/services/plasma-applet-katesession.desktop
 %{_datadir}/kde4/servicetypes/kateplugin.desktop
+%{_datadir}/mime/packages/kateplugin_katesnippets_tng.xml
 %{_desktopdir}/kde4/kate.desktop
+%{_desktopdir}/kde4/katesnippetstng_editor.desktop
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
 %{_iconsdir}/*/*/apps/kate.*
+%{_mandir}/man1/kate.1*
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
@@ -834,6 +848,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libktrace*.so*
 %{_datadir}/apps/kmtrace
 %{_includedir}/ktrace.h
+%{_mandir}/man1/demangle.1*
 
 %files kompare -f kompare.lang
 %defattr(644,root,root,755)
@@ -871,9 +886,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kstartperf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstartperf
-%{_libdir}/libkstartperf.so
-%attr(755,root,root) %{_libdir}/libkstartperf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkstartperf.so.?
+%attr(755,root,root) %{_libdir}/kde4/kstartperf.so
 
 %files kuiviewer
 %defattr(644,root,root,755)
@@ -929,6 +942,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libantlr.so.*.*.*
 %attr(755,root,root) %{_libdir}/libantlr.so.?
 %attr(755,root,root) %{_libdir}/libantlr.so
+%{_mandir}/man1/po2xml.1*
+%{_mandir}/man1/split2po.1*
+%{_mandir}/man1/xml2pot.1*
+%{_mandir}/man1/swappo.1*
 
 #%files scheck
 #%defattr(644,root,root,755)
@@ -967,6 +984,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wcgrep
 %{_datadir}/apps/katepart/syntax/kdesvn-buildrc.xml
 %{_desktopdir}/kde4/kdesvn-build.desktop
+%{_mandir}/man1/adddebug.1*
+%{_mandir}/man1/cheatmake.1*
+%{_mandir}/man1/create*.1*
+%{_mandir}/man1/cxxmetric.1*
+%{_mandir}/man1/extend*.1*
+%{_mandir}/man1/extractrc.1*
+%{_mandir}/man1/zonetab2pot.py.1*
+
 
 %files scripts-cvs
 %defattr(644,root,root,755)
@@ -975,11 +1000,15 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/cvsservice
 %attr(755,root,root) %{_bindir}/noncvslist
 %attr(755,root,root) %{_bindir}/pruneemptydirs
+%{_mandir}/man1/cvs*.1*
+%{_mandir}/man1/pruneemptydirs.1*
+
 
 %files scripts-doc
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdedoc
 %attr(755,root,root) %{_bindir}/qtdoc
+%{_mandir}/man1/qtdoc.1*
 
 %files scripts-kdekillall
 %defattr(644,root,root,755)
