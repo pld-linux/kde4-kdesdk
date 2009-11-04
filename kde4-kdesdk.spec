@@ -4,20 +4,20 @@
 #
 %define		orgname		kdesdk
 %define		_state		unstable
-%define		snap		svn1035674
-%define		qtver		4.5.2
+%define		snap		svn1040395
+%define		qtver		4.6.0
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.72
+Version:	4.3.73
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 # get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/KDE/kdesdk
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	6d026118c847c886ce69a02a3f06fa3e
+# Source0-md5:	c71f23db0b8ba64beee7175592c37247
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -671,12 +671,12 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang	kate		--with-kde
 %find_lang	kate-plugins	--with-kde
 cat kate-plugins.lang >> kate.lang
-#%find_lang	kcachegrind	--with-kde
-#%find_lang	kbugbuster	--with-kde
-#%find_lang	kompare		--with-kde
-#%find_lang	umbrello	--with-kde
+%find_lang	kcachegrind	--with-kde
+%find_lang	kbugbuster	--with-kde
+%find_lang	kompare		--with-kde
+%find_lang	umbrello	--with-kde
 %find_lang	kdesvn-build 	--with-kde
-#%find_lang	lokalize	--with-kde
+%find_lang	lokalize	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -725,8 +725,7 @@ rm -rf $RPM_BUILD_ROOT
 #%defattr(644,root,root,755)
 #%{_zshfcdir}/*
 
-%files lokalize
-#-f lokalize.lang
+%files lokalize -f lokalize.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lokalize
 %{_desktopdir}/kde4/lokalize.desktop
@@ -821,16 +820,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/kcal_bugzilla.so
 %{_datadir}/kde4/services/kresources/kcal/bugzilla.desktop
 
-%files kbugbuster
-# -f kbugbuster.lang
+%files kbugbuster -f kbugbuster.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbugbuster
 %{_datadir}/apps/kbugbuster
 %{_desktopdir}/kde4/kbugbuster.desktop
 %{_iconsdir}/hicolor/*/*/kbugbuster.png
 
-%files kcachegrind
-# -f kcachegrind.lang
+%files kcachegrind -f kcachegrind.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kcachegrind
 %attr(755,root,root) %{_bindir}/hotshot2calltree
@@ -853,8 +850,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/ktrace.h
 %{_mandir}/man1/demangle.1*
 
-%files kompare
-# -f kompare.lang
+%files kompare -f kompare.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kompare
 %attr(755,root,root) %{_libdir}/libkompareinterface.so.*.*.*
@@ -1018,8 +1014,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdekillall
 
-%files umbrello
-# -f umbrello.lang
+%files umbrello -f umbrello.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/umbrello
 %{_datadir}/apps/umbrello
