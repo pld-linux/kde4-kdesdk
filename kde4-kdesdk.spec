@@ -4,20 +4,20 @@
 #
 %define		orgname		kdesdk
 %define		_state		unstable
-%define		snap		svn1040395
+%define		snap		svn1048496
 %define		qtver		4.6.0
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.73
+Version:	4.3.75
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 # get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/KDE/kdesdk
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	c71f23db0b8ba64beee7175592c37247
+# Source0-md5:	b710c14a1d7d74ec5201d5068702dece
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -759,8 +759,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kate
 %attr(755,root,root) %{_bindir}/katesnippetstng_editor
+%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libktexteditor_codesnippets_core.so.?
+%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
 %attr(755,root,root) %{_libdir}/kde4/kate_kttsd.so
@@ -788,6 +791,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/kate-2.4.upd
 %{_datadir}/config/katefiletemplates.knsrc
 %{_datadir}/config/katerc
+%{_datadir}/config/ktexteditor_codesnippets_core.knsrc
 %{_datadir}/kde4/services/kate*.desktop
 %{_datadir}/kde4/services/plasma-applet-katesession.desktop
 %{_datadir}/kde4/servicetypes/kateplugin.desktop
@@ -797,6 +801,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
+%{_includedir}/ktexteditor_codesnippets_core
 %{_iconsdir}/*/*/apps/kate.*
 %{_mandir}/man1/kate.1*
 
