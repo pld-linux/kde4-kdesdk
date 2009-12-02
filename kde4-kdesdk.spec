@@ -38,14 +38,13 @@ BuildRequires:	cmake >= 2.6.3
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
+BuildRequires:	giflib-devel
 BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
-BuildRequires:	giflib-devel
-BuildRequires:	libltdl-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-lib-libXtst-devel
+BuildRequires:	libltdl-devel
+BuildRequires:	libxslt-devel
 BuildRequires:	perl-tools-pod
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
@@ -54,6 +53,8 @@ BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	strigi-devel >= 0.6.3
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
+BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gimpdir	%{_datadir}/gimp/2.0
@@ -376,8 +377,8 @@ Biblioteka cvsservice - pliki nagłówkowe.
 Summary:	Package which adds the KDE Default palette to GIMP
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
 Group:		X11/Applications/Graphics
-Obsoletes:	kde4-kdesdk-palette-gimp
 Requires:	gimp
+Obsoletes:	kde4-kdesdk-palette-gimp
 
 %description palettes-gimp
 This package adds the KDE Default palette to GIMP.
@@ -389,9 +390,9 @@ Pakiet dodający domyślną paletę kolorów KDE do GIMP-a.
 Summary:	Package which adds the KDE Default palette to XPaint
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
 Group:		X11/Applications/Graphics
-Obsoletes:	kde4-kdesdk-palatte-xpaint
 Requires:	xorg-lib-libXt >= 1.0
 Requires:	xpaint
+Obsoletes:	kde4-kdesdk-palatte-xpaint
 
 %description palettes-xpaint
 This package adds the KDE Default palette to XPaint.
