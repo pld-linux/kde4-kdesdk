@@ -10,14 +10,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.75
+Version:	4.3.85
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-# get it via: svn co svn://anonsvn.kde.org/home/kde/trunk/KDE/kdesdk
-#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}%{snap}.tar.bz2
-# Source0-md5:	b710c14a1d7d74ec5201d5068702dece
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
+# Source0-md5:	78f6bed6675c860875ab9f18fad7f0ed
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -634,8 +632,7 @@ możliwościach obejmujących m.in.:
   polecenie powłoki
 
 %prep
-%setup -q -n %{orgname}-%{version}%{snap}
-#%setup -q -n %{orgname}-%{version}
+%setup -q -n %{orgname}-%{version}
 #%patch100 -p0
 %patch0 -p0
 
