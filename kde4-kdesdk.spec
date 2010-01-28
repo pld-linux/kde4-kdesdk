@@ -40,7 +40,6 @@ BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
 BuildRequires:	hunspell-devel
-BuildRequires:	kde4-kdebase-devel >= %{version}
 #BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	giflib-devel
