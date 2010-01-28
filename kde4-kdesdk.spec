@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.4
+Version:	4.3.5
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	9fff7911d3234d29d9073ee83d7e3a64
+# Source0-md5:	aed5437f8af67a758cd57a4e2b7d50b0
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -39,7 +39,6 @@ BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
 BuildRequires:	giflib-devel
-BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
