@@ -4,7 +4,7 @@
 #
 %define		orgname		kdesdk
 %define		_state		unstable
-%define		qtver		4.6.0
+%define		qtver		4.6.1
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
