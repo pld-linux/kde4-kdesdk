@@ -4,7 +4,6 @@
 #
 %define		orgname		kdesdk
 %define		_state		unstable
-%define		snap		svn1048496
 %define		qtver		4.6.0
 
 Summary:	KDESDK - Software Development Kit for KDE
