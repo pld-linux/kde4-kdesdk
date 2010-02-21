@@ -2,19 +2,19 @@
 # TODO:
 # - add man files
 #
-%define		_state		stable
 %define		orgname		kdesdk
-%define		qtver		4.5.3
+%define		_state		stable
+%define		qtver		4.6.1
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.3.5
+Version:	4.4.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	aed5437f8af67a758cd57a4e2b7d50b0
+# Source0-md5:	3c256aaffbbf9f91b2b284b4b734a7f2
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -34,16 +34,18 @@ BuildRequires:	binutils-devel
 BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
-BuildRequires:	cmake >= 2.6.3
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	flex
-BuildRequires:	giflib-devel
-BuildRequires:	kde4-kdepim-devel >= %{version}
+BuildRequires:	hunspell-devel
+#BuildRequires:	kde4-kdepim-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
-BuildRequires:	libjpeg-devel
+BuildRequires:	giflib-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	libxslt-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	perl-tools-pod
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
@@ -52,8 +54,6 @@ BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	strigi-devel >= 0.6.3
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
-BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-lib-libXtst-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gimpdir	%{_datadir}/gimp/2.0
@@ -376,8 +376,8 @@ Biblioteka cvsservice - pliki nagłówkowe.
 Summary:	Package which adds the KDE Default palette to GIMP
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
 Group:		X11/Applications/Graphics
-Requires:	gimp
 Obsoletes:	kde4-kdesdk-palette-gimp
+Requires:	gimp
 
 %description palettes-gimp
 This package adds the KDE Default palette to GIMP.
@@ -389,9 +389,9 @@ Pakiet dodający domyślną paletę kolorów KDE do GIMP-a.
 Summary:	Package which adds the KDE Default palette to XPaint
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
 Group:		X11/Applications/Graphics
+Obsoletes:	kde4-kdesdk-palatte-xpaint
 Requires:	xorg-lib-libXt >= 1.0
 Requires:	xpaint
-Obsoletes:	kde4-kdesdk-palatte-xpaint
 
 %description palettes-xpaint
 This package adds the KDE Default palette to XPaint.
@@ -638,9 +638,9 @@ możliwościach obejmujących m.in.:
 install -d build
 cd build
 %cmake \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DLIB_INSTALL_DIR=%{_libdir} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
@@ -734,11 +734,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/diff.png
 %{_iconsdir}/*/*/actions/preverror.png
 %{_iconsdir}/*/*/actions/prevfuzzyuntrans.png
+%{_iconsdir}/*/*/actions/prevpo.png
+%{_iconsdir}/*/*/actions/prevtemplate.png
 %{_iconsdir}/*/*/actions/search2msgstr.png
 %{_iconsdir}/*/*/apps/lokalize.png
 %{_iconsdir}/*/*/actions/nexterror.png
 %{_iconsdir}/*/*/actions/nextfuzzy.png
 %{_iconsdir}/*/*/actions/nextfuzzyuntrans.png
+%{_iconsdir}/*/*/actions/nextpo.png
+%{_iconsdir}/*/*/actions/nexttemplate.png
 %{_iconsdir}/*/*/actions/nextuntranslated.png
 %{_iconsdir}/*/*/actions/prevuntranslated.png
 %{_iconsdir}/*/*/actions/transsearch.png
@@ -749,8 +753,12 @@ rm -rf $RPM_BUILD_ROOT
 %files kate -f kate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kate
+%attr(755,root,root) %{_bindir}/katesnippetstng_editor
+%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libktexteditor_codesnippets_core.so.?
+%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkateinterfaces.so.?
+%attr(755,root,root) %ghost %{_libdir}/libkateinterfaces.so.?
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
 %attr(755,root,root) %{_libdir}/kde4/kate_kttsd.so
@@ -760,6 +768,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katesnippetsplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katesnippets_tngplugin.so
 %attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
@@ -777,14 +786,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/kate-2.4.upd
 %{_datadir}/config/katefiletemplates.knsrc
 %{_datadir}/config/katerc
+%{_datadir}/config/ktexteditor_codesnippets_core.knsrc
 %{_datadir}/kde4/services/kate*.desktop
 %{_datadir}/kde4/services/plasma-applet-katesession.desktop
 %{_datadir}/kde4/servicetypes/kateplugin.desktop
+%{_datadir}/mime/packages/kateplugin_katesnippets_tng.xml
 %{_desktopdir}/kde4/kate.desktop
+%{_desktopdir}/kde4/katesnippetstng_editor.desktop
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
+%{_includedir}/ktexteditor_codesnippets_core
 %{_iconsdir}/*/*/apps/kate.*
+%{_mandir}/man1/kate.1*
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
@@ -834,6 +848,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libktrace*.so*
 %{_datadir}/apps/kmtrace
 %{_includedir}/ktrace.h
+%{_mandir}/man1/demangle.1*
 
 %files kompare -f kompare.lang
 %defattr(644,root,root,755)
@@ -871,9 +886,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kstartperf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstartperf
-%{_libdir}/libkstartperf.so
-%attr(755,root,root) %{_libdir}/libkstartperf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkstartperf.so.?
+%attr(755,root,root) %{_libdir}/kde4/kstartperf.so
 
 %files kuiviewer
 %defattr(644,root,root,755)
@@ -929,6 +942,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libantlr.so.*.*.*
 %attr(755,root,root) %{_libdir}/libantlr.so.?
 %attr(755,root,root) %{_libdir}/libantlr.so
+%{_mandir}/man1/po2xml.1*
+%{_mandir}/man1/split2po.1*
+%{_mandir}/man1/xml2pot.1*
+%{_mandir}/man1/swappo.1*
 
 #%files scheck
 #%defattr(644,root,root,755)
@@ -967,6 +984,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wcgrep
 %{_datadir}/apps/katepart/syntax/kdesvn-buildrc.xml
 %{_desktopdir}/kde4/kdesvn-build.desktop
+%{_mandir}/man1/adddebug.1*
+%{_mandir}/man1/cheatmake.1*
+%{_mandir}/man1/create*.1*
+%{_mandir}/man1/cxxmetric.1*
+%{_mandir}/man1/extend*.1*
+%{_mandir}/man1/extractrc.1*
+%{_mandir}/man1/zonetab2pot.py.1*
+
 
 %files scripts-cvs
 %defattr(644,root,root,755)
@@ -975,11 +1000,15 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/cvsservice
 %attr(755,root,root) %{_bindir}/noncvslist
 %attr(755,root,root) %{_bindir}/pruneemptydirs
+%{_mandir}/man1/cvs*.1*
+%{_mandir}/man1/pruneemptydirs.1*
+
 
 %files scripts-doc
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdedoc
 %attr(755,root,root) %{_bindir}/qtdoc
+%{_mandir}/man1/qtdoc.1*
 
 %files scripts-kdekillall
 %defattr(644,root,root,755)
