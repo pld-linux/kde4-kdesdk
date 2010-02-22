@@ -31,22 +31,17 @@ BuildRequires:	QtUiTools-devel >= %{qtver}
 BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	binutils-devel
-BuildRequires:	bison
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	db-devel
 BuildRequires:	emacs-common
-BuildRequires:	flex
-BuildRequires:	hunspell-devel
-#BuildRequires:	kde4-kdepim-devel >= %{version}
-BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	giflib-devel
-BuildRequires:	libltdl-devel
+BuildRequires:	hunspell-devel
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
-BuildRequires:	xorg-lib-libXpm-devel
-BuildRequires:	xorg-lib-libXtst-devel
-BuildRequires:	perl-tools-pod
+BuildRequires:	libltdl-devel
+BuildRequires:	libxslt-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
@@ -54,6 +49,8 @@ BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	strigi-devel >= 0.6.3
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
+BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gimpdir	%{_datadir}/gimp/2.0
@@ -376,8 +373,8 @@ Biblioteka cvsservice - pliki nagłówkowe.
 Summary:	Package which adds the KDE Default palette to GIMP
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
 Group:		X11/Applications/Graphics
-Obsoletes:	kde4-kdesdk-palette-gimp
 Requires:	gimp
+Obsoletes:	kde4-kdesdk-palette-gimp
 
 %description palettes-gimp
 This package adds the KDE Default palette to GIMP.
@@ -389,9 +386,9 @@ Pakiet dodający domyślną paletę kolorów KDE do GIMP-a.
 Summary:	Package which adds the KDE Default palette to XPaint
 Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
 Group:		X11/Applications/Graphics
-Obsoletes:	kde4-kdesdk-palatte-xpaint
 Requires:	xorg-lib-libXt >= 1.0
 Requires:	xpaint
+Obsoletes:	kde4-kdesdk-palatte-xpaint
 
 %description palettes-xpaint
 This package adds the KDE Default palette to XPaint.
