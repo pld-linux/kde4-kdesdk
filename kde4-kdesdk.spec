@@ -4,17 +4,17 @@
 #
 %define		orgname		kdesdk
 %define		_state		stable
-%define		qtver		4.6.1
+%define		qtver		4.6.2
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.4.0
+Version:	4.4.1
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	3c256aaffbbf9f91b2b284b4b734a7f2
+# Source0-md5:	4dc275062bb38a338e83ed8f6f4854bc
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
