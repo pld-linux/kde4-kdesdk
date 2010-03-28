@@ -10,7 +10,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.4.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -661,8 +661,8 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang	cervisia	--with-kde
 %find_lang	kapptemplate	--with-kde
 %find_lang	kate		--with-kde
-%find_lang	kate-plugins	--with-kde
-cat kate-plugins.lang >> kate.lang
+#%find_lang	kate-plugins	--with-kde
+#cat kate-plugins.lang >> kate.lang
 %find_lang	kcachegrind	--with-kde
 %find_lang	kbugbuster	--with-kde
 %find_lang	kompare		--with-kde
