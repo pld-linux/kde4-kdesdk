@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.4.2
-Release:	2
+Version:	4.4.3
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	ae3e9cb72311b76c7561440e1f3857fe
+# Source0-md5:	e2690f233dc4cdf04de236cbbcbf82e4
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
