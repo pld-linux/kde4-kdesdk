@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.4.5
+Version:	4.5.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	20453e07a3c5c60bcb0bb46a14f9fb18
+# Source0-md5:	3ab740dd4badbf6816b1df741071bd1c
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -46,7 +46,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.213
-BuildRequires:	strigi-devel >= 0.6.3
+BuildRequires:	strigi-devel >= 0.7.2
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
 BuildRequires:	xorg-lib-libXpm-devel
@@ -570,6 +570,18 @@ SVN protocol service.
 %description -n kde-kio-svn -l pl.UTF-8
 Obsługa protokołu SVN.
 
+%package -n kde-kio-git
+Summary:	GIT protocol service
+Summary(pl.UTF-8):	Obsługa protokołu GIT
+Group:		X11/Libraries
+Requires:	kde4-kdelibs >= %{version}
+
+%description -n kde-kio-git
+GIT protocol service.
+
+%description -n kde-kio-git -l pl.UTF-8
+Obsługa protokołu GIT.
+
 %package -n kde-kio-slave
 Summary:	kde-kio-slave
 Summary(pl.UTF-8):	kde-kio-slave
@@ -750,7 +762,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kate -f kate.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kate
-%attr(755,root,root) %{_bindir}/katesnippetstng_editor
+%attr(755,root,root) %{_bindir}/ktesnippets_editor
 %attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libktexteditor_codesnippets_core.so.?
 %attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so
@@ -759,13 +771,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkateinterfaces.so
 %attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
 %attr(755,root,root) %{_libdir}/kde4/kate_kttsd.so
-%attr(755,root,root) %{_libdir}/kde4/katepybrowseplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katexmlcheckplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katebacktracebrowserplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katesnippetsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katesnippets_tngplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katetabifyplugin.so
+%attr(755,root,root) %{_libdir}/kde4/katexmltoolsplugin.so
 %attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
 %attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
@@ -780,6 +792,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/plasma_applet_katesession.so
 %{_datadir}/apps/kate
 %{_datadir}/apps/katepart
+%{_datadir}/apps/katexmltools
+%{_datadir}/apps/ktexteditor_snippets
 %{_datadir}/apps/kconf_update/kate-2.4.upd
 %{_datadir}/config/katefiletemplates.knsrc
 %{_datadir}/config/katerc
@@ -787,15 +801,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/kate*.desktop
 %{_datadir}/kde4/services/plasma-applet-katesession.desktop
 %{_datadir}/kde4/servicetypes/kateplugin.desktop
-%{_datadir}/mime/packages/kateplugin_katesnippets_tng.xml
 %{_desktopdir}/kde4/kate.desktop
-%{_desktopdir}/kde4/katesnippetstng_editor.desktop
+%{_desktopdir}/kde4/ktesnippets_editor.desktop
 %dir %{_includedir}/kate
 %{_includedir}/kate/*.h
 %{_includedir}/kate_export.h
 %{_includedir}/ktexteditor_codesnippets_core
 %{_iconsdir}/*/*/apps/kate.*
 %{_mandir}/man1/kate.1*
+%{_datadir}/mime/packages/ktesnippets.xml
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
@@ -936,9 +950,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/split2po
 %attr(755,root,root) %{_bindir}/swappo
 %attr(755,root,root) %{_bindir}/xml2pot
-%attr(755,root,root) %{_libdir}/libantlr.so.*.*.*
-%attr(755,root,root) %{_libdir}/libantlr.so.?
-%attr(755,root,root) %{_libdir}/libantlr.so
 %{_mandir}/man1/po2xml.1*
 %{_mandir}/man1/split2po.1*
 %{_mandir}/man1/xml2pot.1*
@@ -971,6 +982,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pprof2calltree
 %attr(755,root,root) %{_bindir}/cxxmetric
 %attr(755,root,root) %{_bindir}/extractrc
+%attr(755,root,root) %{_bindir}/extractqml
 %attr(755,root,root) %{_bindir}/findmissingcrystal
 %attr(755,root,root) %{_bindir}/kdelnk2desktop.py
 %attr(755,root,root) %{_bindir}/package_crystalsvg
@@ -979,7 +991,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kde_generate_export_header
 %attr(755,root,root) %{_bindir}/optimizegraphics
 %attr(755,root,root) %{_bindir}/wcgrep
-%{_datadir}/apps/katepart/syntax/kdesvn-buildrc.xml
+%attr(755,root,root) %{_bindir}/kdesrc-build
 %{_desktopdir}/kde4/kdesvn-build.desktop
 %{_mandir}/man1/adddebug.1*
 %{_mandir}/man1/cheatmake.1*
@@ -1036,11 +1048,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*svn*
 %attr(755,root,root) %{_libdir}/kde4/kio_svn.so
 %attr(755,root,root) %{_libdir}/kde4/kded_ksvnd.so
+%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
+%{_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
+%{_datadir}/kde4/services/fileviewsvnplugin.desktop
 %{_datadir}/kde4/services/kded/*svn*.desktop
 %{_datadir}/kde4/services/ServiceMenus/subversion*.desktop
 %{_datadir}/kde4/services/svn*.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.ksvnd.xml
 %{_iconsdir}/*/*/*/*svn*.*
+
+%files -n kde-kio-git
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/kde4/fileviewgitplugin.so
+%{_datadir}/kde4/services/fileviewgitplugin.desktop
 
 %files -n kde-kio-slave
 %defattr(644,root,root,755)
