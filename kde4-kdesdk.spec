@@ -38,6 +38,7 @@ BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	giflib-devel
 BuildRequires:	hunspell-devel
+BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libltdl-devel
