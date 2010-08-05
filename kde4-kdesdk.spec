@@ -10,7 +10,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.5.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -170,7 +170,8 @@ a
 Summary:	A kdeaccounts plugin for the KDE PIM framework
 Summary(pl.UTF-8):	Wtyczka do książki adresowej KDE dodająca obsługę kdeaccounts
 Group:		X11/Applications
-Requires:	kde4-kdepim-kaddressbook >= %{version}
+#Requires:	kde4-kdepim-kaddressbook >= %{version}
+Requires:	kde4-kdepim-kaddressbook >= 4.4.5
 
 %description kde-resource-kdeaccounts
 A kdeaccounts plugin for the KDE adressbook. It allows adding the
@@ -184,7 +185,8 @@ ona osoby posiadające konta w CVS KDE do książki adresowej.
 Summary:	A bugzilla plugin for the KDE PIM framework
 Summary(pl.UTF-8):	Wtyczka do książki adresowej KDE dodająca obsługę bugzilli
 Group:		X11/Applications
-Requires:	kde4-kdepim-kaddressbook >= %{version}
+#Requires:	kde4-kdepim-kaddressbook >= %{version}
+Requires:	kde4-kdepim-kaddressbook >= 4.4.5
 
 %description kde-resource-bugzilla
 A KDE PIM plugin that allows creating bugzilla TODO lists.
