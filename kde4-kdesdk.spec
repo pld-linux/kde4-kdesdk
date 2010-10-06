@@ -4,17 +4,17 @@
 #
 %define		orgname		kdesdk
 %define		_state		stable
-%define		qtver		4.6.3
+%define		qtver		4.7.0
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.5.1
+Version:	4.5.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	091d24625aa42355da4e6c272abd37e1
+# Source0-md5:	ef8b55b47e66bfd86993f60075097f54
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -38,6 +38,7 @@ BuildRequires:	db-devel
 BuildRequires:	emacs-common
 BuildRequires:	giflib-devel
 BuildRequires:	hunspell-devel
+# required for dolphin plugins
 BuildRequires:	kde4-kdebase-devel >= %{version}
 BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
@@ -682,7 +683,7 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang	kbugbuster	--with-kde
 %find_lang	kompare		--with-kde
 %find_lang	umbrello	--with-kde
-%find_lang	kdesvn-build 	--with-kde
+%find_lang	kdesrc-build 	--with-kde
 %find_lang	lokalize	--with-kde
 
 %clean
@@ -963,7 +964,7 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_libdir}/kde4/plugins/styles/scheck.so
 #%{_datadir}/apps/kstyle/themes/scheck.themerc
 
-%files scripts-developer -f kdesvn-build.lang
+%files scripts-developer -f kdesrc-build.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/adddebug
 %attr(755,root,root) %{_bindir}/build-progress.sh
@@ -995,7 +996,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/optimizegraphics
 %attr(755,root,root) %{_bindir}/wcgrep
 %attr(755,root,root) %{_bindir}/kdesrc-build
-%{_desktopdir}/kde4/kdesvn-build.desktop
+%{_desktopdir}/kde4/kdesrc-build.desktop
 %{_mandir}/man1/adddebug.1*
 %{_mandir}/man1/cheatmake.1*
 %{_mandir}/man1/create*.1*
