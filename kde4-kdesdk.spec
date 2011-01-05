@@ -4,17 +4,17 @@
 #
 %define		orgname		kdesdk
 %define		_state		stable
-%define		qtver		4.7.0
+%define		qtver		4.7.1
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.5.4
-Release:	3
+Version:	4.5.5
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	5737a249726b87c534d469ef1120e020
+# Source0-md5:	bf9f9e6a14f5cf80b1d01d0d610d24e1
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -47,7 +47,7 @@ BuildRequires:	libxslt-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.213
+BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	strigi-devel >= 0.7.2
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
@@ -651,13 +651,8 @@ możliwościach obejmujących m.in.:
 install -d build
 cd build
 %cmake \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIB_INSTALL_DIR=%{_libdir} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	../
+
 %{__make}
 
 %install
