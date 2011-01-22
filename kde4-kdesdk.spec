@@ -18,17 +18,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
-BuildRequires:	Qt3Support-devel >= %{qtver}
-BuildRequires:	QtCore-devel >= %{qtver}
-BuildRequires:	QtDBus-devel >= %{qtver}
-BuildRequires:	QtDesigner-devel >= %{qtver}
-BuildRequires:	QtGui-devel >= %{qtver}
 BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtSql-devel >= %{qtver}
-BuildRequires:	QtSvg-devel >= %{qtver}
-BuildRequires:	QtTest-devel >= %{qtver}
-BuildRequires:	QtUiTools-devel >= %{qtver}
-BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel >= 1.35.0
