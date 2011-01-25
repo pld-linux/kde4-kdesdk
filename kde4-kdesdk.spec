@@ -10,7 +10,7 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
@@ -632,6 +632,7 @@ Summary(pl.UTF-8):      Pliki nagłówkowe do kompilacji aplikacji używających
 Summary(pt_BR.UTF-8):   Arquivos de inclusão para as bibliotecas do kdesdk
 Group:          X11/Development/Libraries
 Requires:       kde4-kdebase-devel >= %{version}
+Requires:       kde4-kdesdk-okteta
 
 %description devel
 This package includes the header files you will need to compile
