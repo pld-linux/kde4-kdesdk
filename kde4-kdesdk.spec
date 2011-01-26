@@ -15,7 +15,7 @@ License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	3bb8a404758e3fa9f2ca1658d175c094
-#Patch100:	%{name}-branch.diff
+#Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	QtNetwork-devel >= %{qtver}
@@ -609,12 +609,12 @@ możliwościach obejmujących m.in.:
   polecenie powłoki
 
 %package okteta
-Summary:       Binary file editor
-Summary(pl.UTF-8):     Edytor plików binarnych
-Group:         X11/Applications
-Requires:      kde4-kdebase-workspace >= %{version}
-Obsoletes:	kde4-kdeutils-okteta
+Summary:	Binary file editor
+Summary(pl.UTF-8):	Edytor plików binarnych
+Group:		X11/Applications
+Requires:	kde4-kdebase-workspace >= %{version}
 Provides:	kde4-kdeutils-okteta
+Obsoletes:	kde4-kdeutils-okteta
 
 %description okteta
 The program Okteta is another implementation of a standalone, plain
@@ -627,12 +627,12 @@ szesnastkowego. Jest oparty na szkielecie libkakao z wtyczkami
 wykorzystującymi biblioteki core i gui Okteta.
 
 %package devel
-Summary:        Header files for compiling applications that use kdesdk libraries
-Summary(pl.UTF-8):      Pliki nagłówkowe do kompilacji aplikacji używających bibliotek kdesdk
-Summary(pt_BR.UTF-8):   Arquivos de inclusão para as bibliotecas do kdesdk
-Group:          X11/Development/Libraries
-Requires:       kde4-kdebase-devel >= %{version}
-Requires:       kde4-kdesdk-okteta
+Summary:	Header files for compiling applications that use kdesdk libraries
+Summary(pl.UTF-8):	Pliki nagłówkowe do kompilacji aplikacji używających bibliotek kdesdk
+Summary(pt_BR.UTF-8):	Arquivos de inclusão para as bibliotecas do kdesdk
+Group:		X11/Development/Libraries
+Requires:	kde4-kdebase-devel >= %{version}
+Requires:	kde4-kdesdk-okteta = %{version}-%{release}
 
 %description devel
 This package includes the header files you will need to compile
@@ -1112,6 +1112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkastengui.so.*.*.*
 
 %files devel
+%defattr(644,root,root,755)
 %attr(755,root,root)
 %attr(755,root,root) %{_libdir}/liboktetagui.so
 %attr(755,root,root) %{_libdir}/liboktetacore.so
@@ -1121,7 +1122,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/liboktetakastencontrollers.so
 %attr(755,root,root) %{_libdir}/liboktetakastencore.so
 %attr(755,root,root) %{_libdir}/liboktetakastengui.so
- 
+
 %{_includedir}/KDE/Kasten
 %{_includedir}/KDE/Okteta
 %{_includedir}/kasten
