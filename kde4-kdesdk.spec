@@ -688,23 +688,29 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	kompare			-p /sbin/ldconfig
-%postun	kompare			-p /sbin/ldconfig
+%post	cervisia	-p /sbin/ldconfig
+%postun	cervisia	-p /sbin/ldconfig
 
-%post	kspy			-p /sbin/ldconfig
-%postun	kspy			-p /sbin/ldconfig
+%post	kate		-p /sbin/ldconfig
+%postun	kate		-p /sbin/ldconfig
 
-%post	kstartperf		-p /sbin/ldconfig
-%postun	kstartperf		-p /sbin/ldconfig
+%post	kmtrace		-p /sbin/ldconfig
+%postun	kmtrace		-p /sbin/ldconfig
+
+%post	kompare		-p /sbin/ldconfig
+%postun	kompare		-p /sbin/ldconfig
+
+%post	kspy		-p /sbin/ldconfig
+%postun	kspy		-p /sbin/ldconfig
+
+%post	kstartperf	-p /sbin/ldconfig
+%postun	kstartperf	-p /sbin/ldconfig
 
 #%post	libcvsservice		-p /sbin/ldconfig
 #%postun	libcvsservice		-p /sbin/ldconfig
 
-%post	okteta	-p /sbin/ldconfig
-%postun	okteta  -p /sbin/ldconfig
-
-%post	kate	-p /sbin/ldconfig
-%postun	kate  -p /sbin/ldconfig
+%post	okteta		-p /sbin/ldconfig
+%postun	okteta		-p /sbin/ldconfig
 
 %files cervisia -f cervisia.lang
 %defattr(644,root,root,755)
