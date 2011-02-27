@@ -700,8 +700,11 @@ rm -rf $RPM_BUILD_ROOT
 #%post	libcvsservice		-p /sbin/ldconfig
 #%postun	libcvsservice		-p /sbin/ldconfig
 
-%post  okteta          -p /sbin/ldconfig
-%postun        okteta          -p /sbin/ldconfig
+%post	okteta	-p /sbin/ldconfig
+%postun	okteta  -p /sbin/ldconfig
+
+%post	kate	-p /sbin/ldconfig
+%postun	kate  -p /sbin/ldconfig
 
 %files cervisia -f cervisia.lang
 %defattr(644,root,root,755)
