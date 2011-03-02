@@ -19,6 +19,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
 BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtScriptTools-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel >= 1.35.0
