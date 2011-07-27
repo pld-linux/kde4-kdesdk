@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.6.5
+Version:	4.7.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	32640bd633cb22ccca05d02b1164216a
+# Source0-md5:	3b9fb9f1e5cf0001ee870b4f469f6cc0
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -567,50 +567,6 @@ kde-kio-slave.
 %description -n kde-kio-slave -l pl.UTF-8
 kde-kio-slave.
 
-
-%package kate
-Summary:	KDE Advanced Text Editor
-Summary(pl.UTF-8):	Zaawansowany edytor tekstu dla KDE
-Group:		X11/Applications/Editors
-
-%description kate
-KDE advanced text editor featuring among others:
-- fast opening/editing of files even the big ones (opens a 50MB file
-  in a few seconds)
-- powerful syntaxhighlighting engine, extensible via XML files
-- Code Folding capabilities for C++, C, PHP and more
-- Dynamic Word Wrap - long lines are wrapped at the window border on
-  the fly for better overview
-- multiple views allows you to view more instances of the same
-  document and/or more documents at one time
-- support for different encodings globally and at write time
-- built in dockable terminal emulation
-- sidebars with a list of open documents, a directory viewer with a
-  directory chooser, a filter chooser and more
-- a plugin interface to allow third party plugins
-- a "Filter" command allows you to run selected text through a shell
-  command
-
-%description kate -l pl.UTF-8
-Kate (KDE advanced text editor) to zaawansowany edytor tekstu KDE o
-możliwościach obejmujących m.in.:
-- szybkie otwieranie i edycję nawet dużych plików (otwiera plik 50MB w
-  parę sekund)
-- potężny silnik podświetlania składni, rozszerzalny za pomocą plików
-  XML
-- możliwość zwijania kodu dla C++, C, PHP i innych języków
-- dynamiczne zawijanie wierszy - długie linie są zawijane na granicy
-  okna w locie dla lepszej widoczności
-- wiele widoków pozwalających oglądać więcej instancji tego samego
-  dokumentu i/lub więcej dokumentów w tym samym czasie
-- obsługę różnych kodowań globalnie i w czasie zapisu
-- wbudowaną emulację dokowalnego terminala
-- paski z listą otwartych dokumentów, przeglądarkę katalogów z
-  możliwością wybierania katalogu i filtrów
-- interfejs wtyczek obsługujący zewnętrzne wtyczki
-- polecenie "Filtr" pozwalające przepuszczać zaznaczony tekst przez
-  polecenie powłoki
-
 %package okteta
 Summary:	Binary file editor
 Summary(pl.UTF-8):	Edytor plików binarnych
@@ -678,14 +634,11 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
 %find_lang	cervisia	--with-kde
 %find_lang	kapptemplate	--with-kde
-%find_lang	kate		--with-kde
-#%%find_lang	kate-plugins	--with-kde
-#cat kate-plugins.lang >> kate.lang
 %find_lang	kcachegrind	--with-kde
 %find_lang	kompare		--with-kde
 #%find_lang okteta             --with-kde
 %find_lang	umbrello	--with-kde
-%find_lang	kdesrc-build 	--with-kde
+#%find_lang	kdesrc-build 	--with-kde
 %find_lang	lokalize	--with-kde
 
 %clean
@@ -693,9 +646,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %post	cervisia	-p /sbin/ldconfig
 %postun	cervisia	-p /sbin/ldconfig
-
-%post	kate		-p /sbin/ldconfig
-%postun	kate		-p /sbin/ldconfig
 
 %post	kmtrace		-p /sbin/ldconfig
 %postun	kmtrace		-p /sbin/ldconfig
@@ -734,7 +684,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/cvsservice.desktop
 %{_datadir}/kde4/services/cervisiapart.desktop
 %{_desktopdir}/kde4/cervisia.desktop
-%{_iconsdir}/*/*/actions/vcs_*.*
+%{_iconsdir}/*/*/actions/vcs-*.*
 %{_iconsdir}/*/*/*/cervisia.png
 %{_mandir}/man1/cervisia.1*
 
@@ -776,68 +726,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/catalogmanager.png
 %{_iconsdir}/*/*/actions/approved.svgz
 %{_iconsdir}/*/*/apps/lokalize.svgz
-
-%files kate -f kate.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kate
-%attr(755,root,root) %{_bindir}/ktesnippets_editor
-%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libktexteditor_codesnippets_core.so.?
-%attr(755,root,root) %{_libdir}/libktexteditor_codesnippets_core.so
-%attr(755,root,root) %{_libdir}/libkateinterfaces.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkateinterfaces.so.?
-%attr(755,root,root) %{_libdir}/libkateinterfaces.so
-%attr(755,root,root) %{_libdir}/libkdeinit4_kate.so
-%attr(755,root,root) %{_libdir}/kde4/kate_kttsd.so
-%attr(755,root,root) %{_libdir}/kde4/katexmlcheckplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katebacktracebrowserplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katebuildplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katectagsplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katesnippets_tngplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katetabifyplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katexmltoolsplugin.so
-%attr(755,root,root) %{_libdir}/kde4/kateopenheaderplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katetextfilterplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katefiletreeplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katefindinfilesplugin.so
-%attr(755,root,root) %{_libdir}/kde4/kategdbplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katemailfilesplugin.so
-%attr(755,root,root) %{_libdir}/kde4/kateexternaltoolsplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katekonsoleplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katefiletemplates.so
-%attr(755,root,root) %{_libdir}/kde4/katesqlplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katesymbolviewerplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katetabbarextensionplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katefilebrowserplugin.so
-%attr(755,root,root) %{_libdir}/kde4/katequickdocumentswitcherplugin.so
-%attr(755,root,root) %{_libdir}/kde4/plasma_applet_katesession.so
-%{_datadir}/apps/kate
-%{_datadir}/apps/katepart
-%{_datadir}/apps/katexmltools
-%{_datadir}/apps/ktexteditor_snippets
-%{_datadir}/apps/kconf_update/kate-2.4.upd
-%{_datadir}/config/katefiletemplates.knsrc
-%{_datadir}/config/katerc
-%{_datadir}/config/ktexteditor_codesnippets_core.knsrc
-%{_datadir}/kde4/services/kate*.desktop
-%{_datadir}/kde4/services/plasma-applet-katesession.desktop
-%{_datadir}/kde4/servicetypes/kateplugin.desktop
-%{_desktopdir}/kde4/kate.desktop
-%{_desktopdir}/kde4/ktesnippets_editor.desktop
-%dir %{_includedir}/kate
-%{_includedir}/kate/*.h
-%{_includedir}/kate_export.h
-%{_includedir}/ktexteditor_codesnippets_core
-%{_iconsdir}/*/*/apps/kate.*
-%{_iconsdir}/*/*/actions/debug.png
-%{_iconsdir}/*/*/actions/interrupt.png
-%{_iconsdir}/*/*/actions/kill.png
-%{_iconsdir}/*/*/actions/repoadd.png
-%{_iconsdir}/*/*/actions/repomanage.png
-%{_iconsdir}/*/*/actions/snippetadd.png
-%{_iconsdir}/*/*/actions/snippetedit.png
-%{_mandir}/man1/kate.1*
-%{_datadir}/mime/packages/ktesnippets.xml
 
 %files kapptemplate -f kapptemplate.lang
 %defattr(644,root,root,755)
@@ -976,7 +864,7 @@ rm -rf $RPM_BUILD_ROOT
 #%attr(755,root,root) %{_libdir}/kde4/plugins/styles/scheck.so
 #%{_datadir}/apps/kstyle/themes/scheck.themerc
 
-%files scripts-developer -f kdesrc-build.lang
+%files scripts-developer
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/adddebug
 %attr(755,root,root) %{_bindir}/build-progress.sh
@@ -1007,8 +895,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kde_generate_export_header
 %attr(755,root,root) %{_bindir}/optimizegraphics
 %attr(755,root,root) %{_bindir}/wcgrep
-%attr(755,root,root) %{_bindir}/kdesrc-build
-%{_desktopdir}/kde4/kdesrc-build.desktop
 %{_mandir}/man1/adddebug.1*
 %{_mandir}/man1/cheatmake.1*
 %{_mandir}/man1/create*.1*
