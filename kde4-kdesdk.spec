@@ -27,6 +27,8 @@ BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	bzip2-devel
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	db-devel
+BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-style-xsl
 BuildRequires:	emacs-common
 BuildRequires:	giflib-devel
 BuildRequires:	hunspell-devel
@@ -41,6 +43,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.600
+BuildRequires:	shared-mime-info
 BuildRequires:	strigi-devel >= 0.7.2
 BuildRequires:	subversion-devel >= 0.37.0
 BuildRequires:	utempter-devel
