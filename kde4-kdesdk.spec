@@ -4,17 +4,17 @@
 #
 %define		orgname		kdesdk
 %define		_state		stable
-%define		qtver		4.7.4
+%define		qtver		4.8.0
 
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.7.4
+Version:	4.8.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	13e9015de83969b478e1b21ac6a901b2
+# Source0-md5:	a5a1265a74c5a73cf39d65cad0bd4bd4
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 URL:		http://www.kde.org/
@@ -775,13 +775,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkompareinterface.so
 %attr(755,root,root) %{_libdir}/libkomparedialogpages.so
 %attr(755,root,root) %{_libdir}/libkomparediff2.so
-%attr(755,root,root) %{_libdir}/kde4/libkomparenavtreepart.so
-%attr(755,root,root) %{_libdir}/kde4/libkomparepart.so
+%attr(755,root,root) %{_libdir}/kde4/komparenavtreepart.so
+%attr(755,root,root) %{_libdir}/kde4/komparepart.so
 %attr(755,root,root) %{_libdir}/libkomparediff2.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkompareinterface.so.?
 %attr(755,root,root) %{_libdir}/libkomparedialogpages.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkomparedialogpages.so.?
 %attr(755,root,root) %{_libdir}/libkomparediff2.so.?
+
 %{_datadir}/apps/kompare*
 %{_datadir}/kde4/services/kompare*.desktop
 %{_datadir}/kde4/servicetypes/kompare*.desktop
@@ -945,6 +946,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/strigi/strigila_diff.so
 %attr(755,root,root) %{_libdir}/strigi/strigita_ts.so
 %attr(755,root,root) %{_libdir}/strigi/strigila_po.so
+%attr(755,root,root) %{_libdir}/strigi/strigita_xlf.so
 %{_datadir}/strigi/fieldproperties/strigi_translation.fieldproperties
 
 %files -n kde-kio-svn
@@ -980,16 +982,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/okteta
 %attr(755,root,root) %{_libdir}/kde4/libkbytearrayedit.so
 %attr(755,root,root) %{_libdir}/kde4/oktetapart.so
-%attr(755,root,root) %ghost %{_libdir}/liboktetacore.so.?
-%attr(755,root,root) %{_libdir}/liboktetacore.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liboktetagui.so.?
-%attr(755,root,root) %{_libdir}/liboktetagui.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liboktetakastencore.so.?
-%attr(755,root,root) %{_libdir}/liboktetakastencore.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liboktetakastencontrollers.so.?
-%attr(755,root,root) %{_libdir}/liboktetakastencontrollers.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/liboktetakastengui.so.?
-%attr(755,root,root) %{_libdir}/liboktetakastengui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libokteta1core.so.?
+%attr(755,root,root) %{_libdir}/libokteta1core.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libokteta1gui.so.?
+%attr(755,root,root) %{_libdir}/libokteta1gui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1okteta1core.so.?
+%attr(755,root,root) %{_libdir}/libkasten1okteta1core.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1okteta1controllers.so.?
+%attr(755,root,root) %{_libdir}/libkasten1okteta1controllers.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1okteta1gui.so.?
+%attr(755,root,root) %{_libdir}/libkasten1okteta1gui.so.*.*.*
 %attr(755,root,root) %{_libdir}/kde4/plugins/designer/oktetadesignerplugin.so
 %{_desktopdir}/kde4/okteta.desktop
 %dir %{_datadir}/apps/oktetapart
@@ -1005,26 +1007,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/okteta-structures.knsrc
 %{_datadir}/config.kcfg/structviewpreferences.kcfg
 #kasten
-%attr(755,root,root) %ghost %{_libdir}/libkastencore.so.?
-%attr(755,root,root) %{_libdir}/libkastencore.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkastencontrollers.so.?
-%attr(755,root,root) %{_libdir}/libkastencontrollers.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkastengui.so.?
-%attr(755,root,root) %{_libdir}/libkastengui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1core.so.?
+%attr(755,root,root) %{_libdir}/libkasten1core.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1controllers.so.?
+%attr(755,root,root) %{_libdir}/libkasten1controllers.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkasten1gui.so.?
+%attr(755,root,root) %{_libdir}/libkasten1gui.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root)
-%attr(755,root,root) %{_libdir}/liboktetagui.so
-%attr(755,root,root) %{_libdir}/liboktetacore.so
-%attr(755,root,root) %{_libdir}/libkastencontrollers.so
-%attr(755,root,root) %{_libdir}/libkastencore.so
-%attr(755,root,root) %{_libdir}/libkastengui.so
-%attr(755,root,root) %{_libdir}/liboktetakastencontrollers.so
-%attr(755,root,root) %{_libdir}/liboktetakastencore.so
-%attr(755,root,root) %{_libdir}/liboktetakastengui.so
+%attr(755,root,root) %{_libdir}/libokteta1gui.so
+%attr(755,root,root) %{_libdir}/libokteta1core.so
+%attr(755,root,root) %{_libdir}/libkasten1controllers.so
+%attr(755,root,root) %{_libdir}/libkasten1core.so
+%attr(755,root,root) %{_libdir}/libkasten1gui.so
+%attr(755,root,root) %{_libdir}/libkasten1okteta1controllers.so
+%attr(755,root,root) %{_libdir}/libkasten1okteta1core.so
+%attr(755,root,root) %{_libdir}/libkasten1okteta1gui.so
 
-%{_includedir}/KDE/Kasten
-%{_includedir}/KDE/Okteta
-%{_includedir}/kasten
-%{_includedir}/okteta
+%{_includedir}/KDE/Kasten1
+%{_includedir}/KDE/Okteta1
+%{_includedir}/kasten1
+%{_includedir}/okteta1
