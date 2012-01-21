@@ -10,13 +10,14 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.8.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
 # Source0-md5:	a5a1265a74c5a73cf39d65cad0bd4bd4
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
+Patch1:		%{name}-include.patch
 URL:		http://www.kde.org/
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	QtScriptTools-devel >= %{qtver}
@@ -612,6 +613,7 @@ que usem as bibliotecas do kdesdk.
 %setup -q -n %{orgname}-%{version}
 #%patch100 -p0
 %patch0 -p0
+%patch1 -p1
 
 %build
 install -d build
