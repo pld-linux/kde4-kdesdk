@@ -1,0 +1,11 @@
+--- kdesdk-4.8.0/okteta/kasten/gui/view/bytearrayview.h.orig	2011-11-17 21:59:15.000000000 +0100
++++ kdesdk-4.8.0/okteta/kasten/gui/view/bytearrayview.h	2012-01-21 19:34:36.208920515 +0100
+@@ -26,7 +26,7 @@
+ // lib
+ #include "oktetakastengui_export.h"
+ // lib
+-#include <bytearrayselection.h>
++#include "bytearrayselection.h"
+ // Kasten gui
+ #include <abstractview.h>
+ #include <zoomable.h> // TODO: able instead of interface? or else?
