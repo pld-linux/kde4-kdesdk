@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.8.0
-Release:	2
+Version:	4.8.1
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	a5a1265a74c5a73cf39d65cad0bd4bd4
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/xz/%{orgname}-%{version}.tar.xz
+# Source0-md5:	7870565f51d4a8ce847dda42ca9ffe30
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 Patch1:		%{name}-include.patch
@@ -892,7 +892,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pprof2calltree
 %attr(755,root,root) %{_bindir}/cxxmetric
 %attr(755,root,root) %{_bindir}/extractrc
-%attr(755,root,root) %{_bindir}/extractqml
 %attr(755,root,root) %{_bindir}/findmissingcrystal
 %attr(755,root,root) %{_bindir}/kdelnk2desktop.py
 %attr(755,root,root) %{_bindir}/package_crystalsvg
