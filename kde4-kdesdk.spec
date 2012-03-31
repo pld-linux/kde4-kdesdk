@@ -646,6 +646,9 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 #%find_lang	kdesrc-build 	--with-kde
 %find_lang	lokalize	--with-kde
 
+# broken perms (no rw for owner)
+chmod u+rwx $RPM_BUILD_ROOT%{_datadir}/apps/lokalize/scripts/find-gui-text.sh
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
