@@ -10,11 +10,11 @@ Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
 Version:	4.8.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	50348013e59be8cb0984bd8553aac08f
+# Source0-md5:	a47a7a28ba48e5553bdb610c548a32dd
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 Patch1:		%{name}-include.patch
@@ -645,9 +645,6 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang	umbrello	--with-kde
 #%find_lang	kdesrc-build 	--with-kde
 %find_lang	lokalize	--with-kde
-
-# broken perms (no rw for owner)
-chmod u+rwx $RPM_BUILD_ROOT%{_datadir}/apps/lokalize/scripts/find-gui-text.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
