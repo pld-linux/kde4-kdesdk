@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.9.1
+Version:	4.9.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	e29a48ad12270e251b5d8617bcf04499
+# Source0-md5:	911c1eab655ab80e1a7cc0d04bd3c649
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 Patch1:		%{name}-include.patch
@@ -686,7 +686,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde4/services/cvsservice.desktop
 %{_datadir}/kde4/services/cervisiapart.desktop
 %{_desktopdir}/kde4/cervisia.desktop
-%{_iconsdir}/*/*/actions/vcs-*.*
+%{_iconsdir}/*/*/actions/vcs-*-cvs-*.*
 %{_iconsdir}/*/*/*/cervisia.png
 %{_mandir}/man1/cervisia.1*
 
@@ -881,12 +881,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kdemangen.pl
 %attr(755,root,root) %{_bindir}/krazy-licensecheck
 %attr(755,root,root) %{_bindir}/makeobj
-%attr(755,root,root) %{_bindir}/dprof2calltree
-%attr(755,root,root) %{_bindir}/hotshot2calltree
-%attr(755,root,root) %{_bindir}/memprof2calltree
-%attr(755,root,root) %{_bindir}/op2calltree
 %attr(755,root,root) %{_bindir}/png2mng.pl
-%attr(755,root,root) %{_bindir}/pprof2calltree
 %attr(755,root,root) %{_bindir}/cxxmetric
 %attr(755,root,root) %{_bindir}/extractrc
 %attr(755,root,root) %{_bindir}/findmissingcrystal
@@ -950,6 +945,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n kde-kio-svn
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*svn*
+%exclude %{_bindir}/create_svnignore
 %attr(755,root,root) %{_libdir}/kde4/kio_svn.so
 %attr(755,root,root) %{_libdir}/kde4/kded_ksvnd.so
 %attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
