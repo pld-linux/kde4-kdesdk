@@ -31,6 +31,7 @@ BuildRequires:	db-devel
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	emacs-common
+BuildRequires:	gettext-devel
 BuildRequires:	giflib-devel
 BuildRequires:	hunspell-devel
 # required for dolphin plugins
@@ -83,7 +84,6 @@ dodatkową zakładkę z rozszerzonymi informacjami o pliku.
 Summary:	A KDE CVS frontend
 Summary(pl.UTF-8):	Frontend do CVS dla KDE
 Group:		X11/Development/Tools
-#Requires:	%{name}-libcvsservice = %{version}-%{release}
 Requires:	cvs-client >= 1.10
 Requires:	kde4-kdebase >= %{version}
 
@@ -124,29 +124,16 @@ Frontend do CVS dla KDE. Ma następujące możliwości:
 - uaktualnianie do taga, brancha lub daty
 - edytor changelogów połączony z oknem dialogowym do commitowania.
 
-%package completions-bash
-Summary:	Autocomplete definitions for bash
-Summary(pl.UTF-8):	Definicje autouzupełniania dla basha
-Group:		Applications/Shells
-Requires:	bash-completion
+%package dolphin-plugins
+Summary:	Dolphin VCS plugins
+Group:		X11/Applications
+Requires:	kde4-dolphin
+Conflicts:	kde-kio-svn < 4.9.3
+Obsoletes:	kde-kio-git
 
-%description completions-bash
-Autocomplete definitions for bash.
-
-%description completions-bash -l pl.UTF-8
-Definicje autouzupełniania dla basha.
-
-%package completions-zsh
-Summary:	Autocomplete definitions for zsh
-Summary(pl.UTF-8):	Definicje autouzupełniania dla zsh
-Group:		Applications/Shells
-Requires:	zsh >= 4.0.6-2
-
-%description completions-zsh
-Autocomplete definitions for zsh.
-
-%description completions-zsh -l pl.UTF-8
-Definicje autouzupełniania dla zsh.
+%description dolphin-plugins
+This package contains plugins that offer integration of various version
+control systems in Dolphin.
 
 %package lokalize
 Summary:	Computer-aided translation system that focuses on productivity and performance
@@ -162,13 +149,12 @@ approach (when translating documentation) and message-by-message
 approach (when translating GUI).
 
 %description lokalize -l pl.UTF-8
-a
+
 
 %package kde-resource-kdeaccounts
 Summary:	A kdeaccounts plugin for the KDE PIM framework
 Summary(pl.UTF-8):	Wtyczka do książki adresowej KDE dodająca obsługę kdeaccounts
 Group:		X11/Applications
-#Requires:	kde4-kdepim-kaddressbook >= %{version}
 Requires:	kde4-kdepim-kaddressbook >= 4.4.5
 
 %description kde-resource-kdeaccounts
@@ -265,29 +251,6 @@ Kprofilemethod is a set of macros which help profiling using QTime.
 Kprofilemethod to zestaw makr ułatwiających profilowanie z
 wykorzystaniem QTime.
 
-%package kspy
-Summary:	A utility for egzamining the internal state of a Qt/KDE application
-Summary(pl.UTF-8):	Narzędzie do badania stanu aplikacji Qt/KDE
-Group:		X11/Development/Tools
-
-%description kspy
-KSpy is a utility intended to help developers examine the internal
-state of a Qt/KDE application. KSpy graphically displays all the
-QObjects in use, and allows you to browse their properties. Using KSpy
-is very simple, include kspy.h and call KSpy::invoke() when you want
-to look inside your app. The KSpy function is inline and the main part
-of KSpy is dynamically loaded, so you may even want to leave this in
-the release build of an application.
-
-%description kspy -l pl.UTF-8
-KSpy to narzędzie mające ułatwić programistom badanie wewnętrznego
-stanu aplikacji Qt/KDE. KSpy ilustruje graficznie wszystkie QObjects
-jakie są w użyciu i pozwala na łatwe przeglądanie ich właściwości.
-Korzystanie z KSpy jest bardzo proste (wystarczy dołączyć plik kspy.h
-i wywołać KSpy::invoke() w miejscu, które chcemy obejrzeć w naszej
-aplikacji. Funkcja KSpy jest inline, więc można zostawić ją nawet w
-wydaniu stabilnym.
-
 %package kstartperf
 Summary:	A tool to measure startup time for KDE applications
 Summary(pl.UTF-8):	Narzędzie służące do pomiaru czasu ładowania aplikacji KDE
@@ -309,69 +272,6 @@ Qt Designer UI file Viewer.
 
 %description kuiviewer -l pl.UTF-8
 Przeglądarka plików UI generowanych przez Qt designera.
-
-%package kunittest
-Summary:	KUnit Test
-Summary(pl.UTF-8):	Narzędzie testujące KUnit
-Group:		X11/Development/Tools
-
-%description kunittest
-KUnit Test.
-
-%description kunittest -l pl.UTF-8
-Narzędzie testujące KUnit.
-
-%package libcvsservice
-Summary:	A cvs access library
-Summary(pl.UTF-8):	Biblioteka dostępu do cvs
-Group:		X11/Libraries
-Requires:	kde4-kdelibs >= %{version}
-
-%description libcvsservice
-A library for access to CVS repositories for KDE apps.
-
-%description libcvsservice -l pl.UTF-8
-Biblioteka służąca do kontroli repozytoriów CVS z poziomu aplikacji
-KDE.
-
-%package libcvsservice-devel
-Summary:	A cvsservice library - header files
-Summary(pl.UTF-8):	Biblioteka cvsservice - pliki nagłówkowe
-Group:		X11/Development/Libraries
-Requires:	%{name}-libcvsservice = %{version}-%{release}
-
-%description libcvsservice-devel
-A cvsservice library - header files.
-
-%description libcvsservice-devel -l pl.UTF-8
-Biblioteka cvsservice - pliki nagłówkowe.
-
-%package palettes-gimp
-Summary:	Package which adds the KDE Default palette to GIMP
-Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do GIMP-a
-Group:		X11/Applications/Graphics
-Requires:	gimp
-Obsoletes:	kde4-kdesdk-palette-gimp
-
-%description palettes-gimp
-This package adds the KDE Default palette to GIMP.
-
-%description palettes-gimp -l pl.UTF-8
-Pakiet dodający domyślną paletę kolorów KDE do GIMP-a.
-
-%package palettes-xpaint
-Summary:	Package which adds the KDE Default palette to XPaint
-Summary(pl.UTF-8):	Pakiet dodający domyślną paletę kolorów KDE do XPainta
-Group:		X11/Applications/Graphics
-Requires:	xorg-lib-libXt >= 1.0
-Requires:	xpaint
-Obsoletes:	kde4-kdesdk-palatte-xpaint
-
-%description palettes-xpaint
-This package adds the KDE Default palette to XPaint.
-
-%description palettes-xpaint -l pl.UTF-8
-Pakiet dodający domyślną paletę kolorów KDE do XPainta.
 
 %package po2xml
 Summary:	An xml2po and vice versa converters
@@ -458,19 +358,6 @@ A script for killing KDE apps started with kdeinit.
 %description scripts-kdekillall -l pl.UTF-8
 Skrypt do unicestwiania aplikacji KDE uruchomionych przez kdeinit.
 
-%package scheck
-Summary:	KDE Style - Scheck
-Summary(pl.UTF-8):	Motyw KDE - Scheck
-Group:		X11/Development/Tools
-
-%description scheck
-Development style for searching accelerator and style guide conflicts.
-
-%description scheck -l pl.UTF-8
-Motyw KDE przeznaczony do szukania konfliktów w akceleratorach oraz
-sprawdzania zgodności z wytycznymi dot. wyglądu graficznego aplikacji
-KDE.
-
 %package umbrello
 Summary:	UML Modeler
 Summary(pl.UTF-8):	Modeler UML
@@ -535,30 +422,6 @@ Strigi Analyzer.
 %description strigi-analyzer -l pl.UTF-8
 Strigi Analyzer.
 
-%package -n kde-kio-svn
-Summary:	SVN protocol service
-Summary(pl.UTF-8):	Obsługa protokołu SVN
-Group:		X11/Libraries
-Requires:	kde4-kdelibs >= %{version}
-
-%description -n kde-kio-svn
-SVN protocol service.
-
-%description -n kde-kio-svn -l pl.UTF-8
-Obsługa protokołu SVN.
-
-%package -n kde-kio-git
-Summary:	GIT protocol service
-Summary(pl.UTF-8):	Obsługa protokołu GIT
-Group:		X11/Libraries
-Requires:	kde4-kdelibs >= %{version}
-
-%description -n kde-kio-git
-GIT protocol service.
-
-%description -n kde-kio-git -l pl.UTF-8
-Obsługa protokołu GIT.
-
 %package -n kde-kio-slave
 Summary:	kde-kio-slave
 Summary(pl.UTF-8):	kde-kio-slave
@@ -570,6 +433,18 @@ kde-kio-slave.
 
 %description -n kde-kio-slave -l pl.UTF-8
 kde-kio-slave.
+
+%package -n kde-kio-svn
+Summary:	SVN protocol service
+Summary(pl.UTF-8):	Obsługa protokołu SVN
+Group:		X11/Libraries
+Requires:	kde4-kdelibs >= %{version}
+
+%description -n kde-kio-svn
+SVN protocol service.
+
+%description -n kde-kio-svn -l pl.UTF-8
+Obsługa protokołu SVN.
 
 %package okteta
 Summary:	Binary file editor
@@ -638,10 +513,9 @@ rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 %find_lang	kapptemplate	--with-kde
 %find_lang	kcachegrind	--with-kde
 %find_lang	kompare		--with-kde
+%find_lang	lokalize	--with-kde
 #%find_lang okteta             --with-kde
 %find_lang	umbrello	--with-kde
-#%find_lang	kdesrc-build 	--with-kde
-%find_lang	lokalize	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -655,14 +529,8 @@ rm -rf $RPM_BUILD_ROOT
 %post	kompare		-p /sbin/ldconfig
 %postun	kompare		-p /sbin/ldconfig
 
-%post	kspy		-p /sbin/ldconfig
-%postun	kspy		-p /sbin/ldconfig
-
 %post	kstartperf	-p /sbin/ldconfig
 %postun	kstartperf	-p /sbin/ldconfig
-
-#%post	libcvsservice		-p /sbin/ldconfig
-#%postun	libcvsservice		-p /sbin/ldconfig
 
 %post	okteta		-p /sbin/ldconfig
 %postun	okteta		-p /sbin/ldconfig
@@ -690,21 +558,29 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/*/cervisia.png
 %{_mandir}/man1/cervisia.1*
 
-
-#%files completions-bash
-#%defattr(644,root,root,755)
-#%{_sysconfdir}/bash_completion.d/*
-
-#%files completions-zsh
-#%defattr(644,root,root,755)
-#%{_zshfcdir}/*
+%files dolphin-plugins
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/kde4/fileviewbazaarplugin.so
+%attr(755,root,root) %{_libdir}/kde4/fileviewgitplugin.so
+%attr(755,root,root) %{_libdir}/kde4/fileviewhgplugin.so
+%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
+%{_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
+%{_datadir}/config.kcfg/fileviewhgpluginsettings.kcfg
+%{_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
+%{_datadir}/kde4/services/fileviewbazaarplugin.desktop
+%{_datadir}/kde4/services/fileviewgitplugin.desktop
+%{_datadir}/kde4/services/fileviewhgplugin.desktop
+%{_datadir}/kde4/services/fileviewsvnplugin.desktop
 
 %files lokalize -f lokalize.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lokalize
-%{_desktopdir}/kde4/lokalize.desktop
-%{_datadir}/config.kcfg/lokalize.kcfg
+%attr(755,root,root) %{_libdir}/kde4/pothumbnail.so
 %{_datadir}/apps/lokalize
+%{_datadir}/config.kcfg/lokalize.kcfg
+%{_datadir}/config.kcfg/pocreatorsettings.kcfg
+%{_datadir}/kde4/services/pothumbnail.desktop
+%{_desktopdir}/kde4/lokalize.desktop
 %{_iconsdir}/*/*/actions/msgid2msgstr.png
 %{_iconsdir}/*/*/actions/insert_arg.png
 %{_iconsdir}/*/*/actions/prevfuzzy.png
@@ -738,11 +614,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kdevappwizard/templates
 %{_datadir}/apps/kdevappwizard/template_previews
 %{_iconsdir}/*/*x*/apps/kapptemplate.*
-
-#%files kde-resource-kdeaccounts
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/kde4/kabcformat_kdeaccounts.so
-#%{_datadir}/apps/kabc/formats/*
 
 %files kcachegrind -f kcachegrind.lang
 %defattr(644,root,root,755)
@@ -793,14 +664,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/kprofilemethod.h
 
-#%files kspy
-#%defattr(644,root,root,755)
-#%{_libdir}/libkspy.so
-#%attr(755,root,root) %{_libdir}/libkspy.so.*.*.*
-#%attr(755,root,root) %ghost %{_libdir}/libkspy.so.1
-#%{_includedir}/kspy.h
-#%{_mandir}/man1/testkspy.1*
-
 %files kstartperf
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstartperf
@@ -820,37 +683,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde4/kuiviewer.desktop
 %{_iconsdir}/*/*/apps/kuiviewer.png
 
-#%files kunittest
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/kunit*
-#%attr(755,root,root) %{_libdir}/libkunittestgui.so.*.*.*
-#%attr(755,root,root) %ghost %{_libdir}/libkunittestgui.so.0
-#%attr(755,root,root) %{_libdir}/libkunittestgui.so
-#%{_includedir}/kunittest
-
-#%files libcvsservice
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/libcvsservice.so.*.*.*
-#%attr(755,root,root) %ghost %{_libdir}/libcvsservice.so.0
-#%attr(755,root,root) %{_libdir}/libkdeinit_cvsservice.so
-#%attr(755,root,root) %{_libdir}/libkdeinit_cvsaskpass.so
-#%attr(755,root,root) %{_libdir}/kde4/cvs*.so
-
-#%files libcvsservice-devel
-#%defattr(644,root,root,755)
-#%{_includedir}/cvsjob_stub.h
-#%{_includedir}/cvsservice_stub.h
-#%{_includedir}/repository_stub.h
-#%attr(755,root,root) %{_libdir}/libcvsservice.so
-
-#%files palettes-gimp
-#%defattr(644,root,root,755)
-#%{_gimpdir}/palettes
-
-#%files palettes-xpaint
-#%defattr(644,root,root,755)
-#%{_appdefsdir}/*
-
 %files po2xml
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/po2xml
@@ -861,11 +693,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/split2po.1*
 %{_mandir}/man1/xml2pot.1*
 %{_mandir}/man1/swappo.1*
-
-#%files scheck
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/kde4/plugins/styles/scheck.so
-#%{_datadir}/apps/kstyle/themes/scheck.themerc
 
 %files scripts-developer
 %defattr(644,root,root,755)
@@ -948,26 +775,16 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/create_svnignore
 %attr(755,root,root) %{_libdir}/kde4/kio_svn.so
 %attr(755,root,root) %{_libdir}/kde4/kded_ksvnd.so
-%attr(755,root,root) %{_libdir}/kde4/fileviewsvnplugin.so
-%{_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
-%{_datadir}/kde4/services/fileviewsvnplugin.desktop
 %{_datadir}/kde4/services/kded/*svn*.desktop
 %{_datadir}/kde4/services/ServiceMenus/subversion*.desktop
 %{_datadir}/kde4/services/svn*.protocol
 %{_datadir}/dbus-1/interfaces/org.kde.ksvnd.xml
 %{_iconsdir}/*/*/*/*svn*.*
 
-%files -n kde-kio-git
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/fileviewgitplugin.so
-%{_datadir}/kde4/services/fileviewgitplugin.desktop
-%{_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
-
 %files -n kde-kio-slave
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/kio_perldoc.so
 %dir %{_datadir}/apps/kio_perldoc
-#%{_datadir}/apps/kio_perldoc/kio_perldoc.css
 %{_datadir}/apps/kio_perldoc/pod2html.pl
 %{_datadir}/kde4/services/perldoc.protocol
 
