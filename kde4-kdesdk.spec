@@ -546,10 +546,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/*cervisia*.so
 %{_datadir}/apps/cervisia*
 %{_datadir}/config.kcfg/cervisiapart.kcfg
-%{_datadir}/apps/kconf_update/cervisia.upd
-%attr(755,root,root) %{_datadir}/apps/kconf_update/change_colors.pl
-%attr(755,root,root) %{_datadir}/apps/kconf_update/cervisia-change_repos_list.pl
-%attr(755,root,root) %{_datadir}/apps/kconf_update/cervisia-normalize_cvsroot.pl
 %{_datadir}/dbus-1/interfaces/*.cervisia.*.xml
 %{_datadir}/kde4/services/cvsservice.desktop
 %{_datadir}/kde4/services/cervisiapart.desktop
