@@ -9,12 +9,12 @@
 Summary:	KDESDK - Software Development Kit for KDE
 Summary(pl.UTF-8):	KDESDK - Wsparcie programistyczne dla KDE
 Name:		kde4-kdesdk
-Version:	4.10.0
+Version:	4.10.2
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	77db1373fdf6e2cf2a886b526ab0fc39
+# Source0-md5:	ef6b98900047a99715589d9f2efaaa21
 #Patch100: %{name}-branch.diff
 Patch0:		%{name}-kiosvn.patch
 Patch1:		%{name}-include.patch
@@ -823,7 +823,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root)
+%attr(755,root,root) %{_bindir}/struct2osd.sh
 %attr(755,root,root) %{_libdir}/libokteta1gui.so
 %attr(755,root,root) %{_libdir}/libokteta1core.so
 %attr(755,root,root) %{_libdir}/libkasten2controllers.so
