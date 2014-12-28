@@ -31,7 +31,7 @@ BuildRequires:	db-devel
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	emacs-common
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	giflib-devel
 BuildRequires:	hunspell-devel
 # required for dolphin plugins
